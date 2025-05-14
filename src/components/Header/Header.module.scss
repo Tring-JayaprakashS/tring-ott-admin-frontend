@@ -1,0 +1,65 @@
+.header_main {
+  @apply h-[76px] flex justify-between bg-white z-40 sticky top-0;
+}
+.header_welcome_message {
+  @apply text-2xl font-semibold;
+  color: var(--color-primary);
+  @media (max-width: 1024px) {
+    @apply text-base;
+  }
+}
+.header_section_search {
+  @apply relative w-[340px] h-[44px];
+  @media (max-width: 1024px) {
+    @apply w-[240px];
+  }
+
+  &_input {
+    @apply w-full h-[44px] ps-[44px] pe-[40px] rounded-md focus:outline-none;
+    background-color: var(--pages--component-bg);
+  }
+
+  &_img_icon {
+    @apply absolute left-[10px] top-1/2 -translate-y-1/2 w-[20px] h-[20px] pointer-events-none;
+  }
+}
+
+.header_section_logo {
+  @apply w-[186px] h-[44px] mt-[18px] me-[24px] flex justify-end;
+}
+
+.header_notification {
+  @apply w-[44px] h-[44px]  rounded-[10px] flex justify-center items-center;
+  background-color: var(--pages--component-bg);
+}
+
+.header_left {
+  @apply flex justify-between w-full items-center gap-[24px] ms-[24px];
+}
+.header_right_content {
+  @apply flex justify-center items-center gap-4;
+}
+
+.header_icon {
+  @apply w-[24px] h-[24px]  cursor-pointer;
+}
+
+.header_profile_container {
+  @apply h-[44px] flex items-center gap-3 me-[24px];
+}
+.header_profile {
+  &_wrapper {
+    @apply hidden lg:block;
+  }
+  &_logo {
+    @apply h-full w-[44px];
+  }
+  &_name {
+    @apply text-xs lg:text-base   lg:font-medium  sm:text-base flex;
+    color: var(--color-primary);
+  }
+  &_role {
+    @apply opacity-40 text-xs font-normal;
+    color: var(--color-primary);
+  }
+}

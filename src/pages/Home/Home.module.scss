@@ -1,0 +1,8 @@
+.home_wraper {
+  @apply flex h-screen;
+  background-color: var(--pages--component-bg);
+}
+
+.home_wraper_mian {
+  @apply flex-1 overflow-x-hidden;
+}

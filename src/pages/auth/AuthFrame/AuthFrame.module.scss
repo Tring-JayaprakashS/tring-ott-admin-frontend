@@ -1,0 +1,22 @@
+.authframe_container {
+  @apply relative w-full m-auto h-[900px] flex justify-center items-center flex-col md:flex-row bg-[#8180FF14];
+  background-image: url(../../../assets/images/img_bottom_frame.svg);
+  background-repeat: no-repeat;
+  background-position: bottom left;
+
+  &_bg_frame {
+    @apply absolute right-0 top-0;
+  }
+  &_inner {
+    @apply flex h-[820px] items-center justify-between bg-[#FFFFFF] rounded-[40px]  py-4 ps-4;
+  }
+  &_imagecontainer {
+    &_img {
+      @apply rounded-[30px];
+    }
+  }
+
+  &_outlet {
+    @apply w-[512px];
+  }
+}

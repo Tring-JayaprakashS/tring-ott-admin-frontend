@@ -1,0 +1,38 @@
+.dropdown_wrap {
+  @apply mb-4;
+}
+
+.dropdown_trigger {
+  @apply flex justify-between h-[44px] items-center px-[14px] py-2 bg-white border-[1.2px] border-[#0420361A] rounded-lg cursor-pointer;
+}
+
+.dropdown_placeholder {
+  @apply text-sm font-normal;
+  color: var(--color-primary);
+}
+
+.dropdown_selected {
+  @apply text-sm font-normal;
+  color: var(--color-primary);
+}
+
+.dropdown_options {
+  @apply absolute z-[52] w-full mt-1 bg-white border border-gray-200 rounded shadow-md max-h-60 overflow-auto;
+}
+
+.dropdown_option {
+  @apply px-4 py-2 text-[13px]  hover:bg-gray-100 cursor-pointer;
+  color: var(--color-primary);
+}
+
+.dropdown_label {
+  @apply block text-xs font-normal  mb-[6px];
+  color: var(--color-primary);
+}
+
+.dropdown_relative {
+  @apply relative w-auto;
+}
+.dropdown_Icon {
+  @apply w-4 h-4 ml-2;
+}

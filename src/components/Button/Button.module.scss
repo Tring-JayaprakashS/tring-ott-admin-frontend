@@ -1,0 +1,15 @@
+.button {
+  @apply h-[48px] rounded-[6px]  font-medium text-[14px] flex items-center justify-center transition-all;
+
+  &_primary {
+    @apply text-white;
+    background-color: var(--color-secondary);
+    &:hover {
+      background-color: var(--button-bg-hover);
+    }
+  }
+
+  &_fullWidth {
+    @apply w-full;
+  }
+}

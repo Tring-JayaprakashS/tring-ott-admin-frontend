@@ -1,0 +1,46 @@
+.signin_container {
+  &_card {
+    @apply w-full  md:w-[512px] h-auto bg-[#FFFFFF] rounded-[5px] flex flex-col items-center;
+
+    &_logo {
+      @apply flex flex-col justify-center items-center;
+
+      &_text {
+        @apply opacity-80 text-xs font-normal;
+        color: var(--color-primary);
+      }
+    }
+    &_header_container {
+      @apply flex flex-col;
+    }
+    &_header {
+      @apply font-medium flex justify-center pt-[80px]  text-[24px];
+      color: var(--color-primary);
+    }
+
+    &_subhead {
+      @apply mt-[6px] mb-7 font-normal text-sm opacity-50;
+      color: var(--color-primary);
+    }
+  }
+}
+
+.account_link {
+  @apply text-[13px] text-center mt-6 opacity-50;
+  color: var(--color-primary);
+
+  a {
+    @apply hover:underline;
+    color: var(--color-success);
+  }
+}
+
+.error_message {
+  @apply text-center mb-4;
+  color: var(--error-color);
+}
+
+.success_message {
+  @apply text-center mb-4;
+  color: var(--color-success);
+}

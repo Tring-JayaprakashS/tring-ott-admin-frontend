@@ -1,0 +1,30 @@
+.input_container {
+  @apply w-[360px] h-[66px] mb-5;
+}
+
+.input_label {
+  @apply text-[13px]  font-normal mb-[6px] block;
+  color: var(--color-primary);
+}
+
+.input_wrapper {
+  @apply relative flex items-center rounded-[6px]  w-full h-[44px];
+}
+
+.input_field {
+  @apply px-[14px] text-[14px] rounded-[6px] outline-none  border-[1.2px]  w-full h-full;
+  color: var(--color-primary);
+  @apply placeholder:text-[14px];
+  &::placeholder {
+    color: var(--color-input-placeholder);
+  }
+}
+
+.toogle_button {
+  @apply absolute right-[14px] flex items-center justify-center bg-transparent border-none cursor-pointer;
+}
+
+.icon {
+  @apply text-[18px] opacity-50;
+  color: var(--color-primary);
+}

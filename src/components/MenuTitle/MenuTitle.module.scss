@@ -1,0 +1,39 @@
+.menutitle {
+  @apply flex justify-between items-center mb-[18px] flex-wrap gap-y-3;
+  &_title {
+    @apply text-xl font-medium;
+    color: var(--color-primary);
+  }
+
+  &_subtitle {
+    @apply opacity-60 text-xs font-normal mt-1;
+    color: var(--color-primary);
+  }
+
+  &_actions {
+    @apply flex gap-4 items-center;
+
+    @media (max-width: 1050px) {
+      @apply w-full justify-end;
+    }
+  }
+
+  &_button {
+    @apply px-3 py-[10px] rounded-xl flex items-center gap-1;
+    color: var(--color-primary);
+    background: var(--color-secondary);
+
+    &_text {
+      @apply text-sm font-medium;
+    }
+  }
+
+  &_filter {
+    @apply px-4 py-[10px] rounded-xl border border-gray-300 flex items-center gap-2;
+    background: white;
+
+    &_text {
+      @apply text-sm font-medium text-gray-600;
+    }
+  }
+}

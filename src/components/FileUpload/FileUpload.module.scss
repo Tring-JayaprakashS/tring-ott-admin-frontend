@@ -1,0 +1,35 @@
+.fileuploader_container {
+  @apply w-full flex flex-col items-center cursor-pointer;
+}
+
+.fileuploader_input {
+  @apply hidden;
+}
+
+.fileuploader_icon_container {
+  @apply h-[66px] w-[66px] rounded-full border border-dashed  flex justify-center items-center mb-2;
+  background-color: #04203608;
+  border-color: #0420361a;
+}
+
+.fileuploader_logo {
+  @apply object-contain;
+}
+
+.fileuploader_text {
+  @apply font-normal text-sm;
+  color: var(--color-primary-opacity-40);
+  text-align: center;
+}
+.fileuploader_drop {
+  @apply text-xs;
+}
+
+.fileuploader_highlight {
+  @apply underline;
+  color: var(--color-success);
+}
+
+.fileuploader_filetypes {
+  @apply text-center italic text-xs mb-1;
+}

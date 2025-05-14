@@ -1,0 +1,10 @@
+@use '../../../styles/authStyles.module.scss';
+
+.forgot_password {
+  @apply flex justify-end mb-4;
+
+  &_link {
+    @apply text-[13px]  hover:underline;
+    color: var(--color-primary);
+  }
+}

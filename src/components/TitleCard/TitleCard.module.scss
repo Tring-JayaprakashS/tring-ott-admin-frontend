@@ -1,0 +1,9 @@
+.titleCard {
+  @apply rounded-[16px] p-[12px] gap-[16px] flex flex-col;
+  background-color: var(--common-background-color);
+}
+
+.title {
+  @apply text-[20px] font-medium leading-[20px];
+  color: var(--color-primary);
+}

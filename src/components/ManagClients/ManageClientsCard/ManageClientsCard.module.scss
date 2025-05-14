@@ -1,0 +1,105 @@
+.card {
+  @apply flex flex-col rounded-[16px] bg-white shadow-sm w-full max-w-full  min-h-[229px];
+  border: 1px solid var(--border-color);
+  padding: 0;
+}
+
+.card_cuntent_wrap {
+  @apply p-3 flex flex-col gap-5;
+  border-bottom: 1px solid var(--border-color);
+}
+
+.header {
+  @apply flex justify-between items-center;
+}
+
+.client {
+  @apply flex items-center gap-[10px];
+}
+
+.logoWrapper {
+  @apply relative w-[40px] h-[40px];
+}
+
+.logo {
+  @apply w-full h-full rounded-full object-cover;
+}
+
+.crown {
+  @apply absolute top-[-2px] right-[-2px] w-[16px] h-[16px];
+}
+
+.name {
+  @apply text-[16px] font-semibold text-black;
+}
+
+.rightSection {
+  @apply flex items-center gap-[8px];
+}
+
+.status {
+  @apply flex items-center px-[12px] py-[4px] h-[28px] rounded-full;
+  &_active {
+    @apply bg-[#22C55E1A];
+  }
+  &_inactive {
+    @apply bg-[#c53d221a];
+  }
+}
+
+.status_dot {
+  @apply h-[8px] w-[8px] rounded-full mr-1.5;
+  &_active {
+    background-color: var(--color-green);
+  }
+  &_inactive {
+    background-color: #c52822;
+  }
+}
+
+.status_content {
+  @apply text-[14px] opacity-70;
+  color: var(--color-primary);
+}
+
+.menu {
+  @apply text-xl cursor-pointer opacity-60;
+}
+
+.platforms {
+  @apply flex flex-wrap gap-[12px] justify-start items-center;
+}
+
+.platform_wrap {
+  @apply h-7 rounded-3xl p-3  overflow-hidden flex justify-center items-center;
+  background-color: var(--color-primary-bg);
+}
+
+.platforms img {
+  @apply max-h-4 h-[16px] w-auto;
+}
+
+.footer {
+  @apply flex justify-between items-center  p-3;
+}
+
+.footerItem,
+.footerItem_right {
+  @apply flex flex-col;
+}
+
+.label,
+.label_right {
+  @apply text-[13px] opacity-60;
+  color: var(--color-primary);
+}
+
+.value {
+  @apply text-[14px] font-normal;
+  color: var(--color-primary);
+}
+
+.value_right {
+  @apply text-[14px] font-normal  text-right;
+  color: var(--color-primary);
+}

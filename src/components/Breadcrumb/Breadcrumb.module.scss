@@ -1,0 +1,10 @@
+.breadcrumb {
+  @apply flex text-[12px]  mt-[6px];
+}
+
+.dashboard {
+  color: var(--color-secondary-500);
+}
+.image {
+  @apply w-[15px] h-[15px] ms-1 me-1;
+}
