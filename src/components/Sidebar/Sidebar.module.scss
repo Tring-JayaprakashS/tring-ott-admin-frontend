@@ -4,7 +4,6 @@
 
   &_logo_div {
     @apply w-full  min-h-[76px] p-[16px];
-    // background-color: #112b40;
   }
 
   &_logo_img {
@@ -35,12 +34,12 @@
   &_button,
   &_menu_title {
     @apply w-[34px] h-[18px]  font-normal mt-4 text-[12px] leading-[12px] tracking-normal;
-    color: var(--common-background-color-50);
+    color: var(--light-text-color);
   }
 
   &_menu_title_mini {
     @apply font-normal text-[12px] leading-[12px] mt-4 mb-4 tracking-normal capitalize;
-    color: var(--common-background-color-50);
+    color: var(--light-text-color);
   }
 
   .section_main_list {

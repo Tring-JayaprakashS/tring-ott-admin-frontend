@@ -13,6 +13,7 @@ import ManageClients from '../pages/ManageClients/ManageClients';
 import Subscriptions from '../pages/Subscriptions/Subscriptions';
 import { ClientList } from '../pages/ClientList/ClientList';
 import AuditLogs from '../pages/AuditLogs/AuditLogs';
+import MenuList from '../pages/MenuList/MenuList';
 
 const Router = () => {
   const { currentUser } = useAUth();
@@ -35,10 +36,13 @@ const Router = () => {
           }>
           <Route index element={<Navigate to='dashboard' replace />} />
           <Route path='dashboard' element={<Dashboard />} />
-          <Route path='manageclients' element={<ManageClients />} />
+
+          <Route path='manage-clients' element={<ManageClients />} />
+          <Route path='manage-clients/add-clients' element={<MenuList />} />
+
           <Route path='subscriptions' element={<Subscriptions />} />
-          <Route path='clientList' element={<ClientList />} />
-          <Route path='auditLogs' element={<AuditLogs />} />
+          <Route path='clien-list' element={<ClientList />} />
+          <Route path='audit-logs' element={<AuditLogs />} />
           <Route path='help&support' element={<HelpSupport />} />
           <Route path='settings' element={<Setting />} />
         </Route>
@@ -47,7 +51,7 @@ const Router = () => {
           path='*'
           element={
             currentUser ? (
-              <Navigate to='/dashboard' />
+              <Navigate to='/home/dashboard' />
             ) : (
               <Navigate to='/signin' />
             )

@@ -4,7 +4,8 @@ import Styles from './Button.module.scss';
 interface ButtonProps {
   children: React.ReactNode;
   type?: 'button' | 'submit' | 'reset';
-  variant?: 'primary';
+  disabled?: boolean;
+  variant?: 'primary' | 'transparent' | 'disable';
   fullWidth?: boolean;
   onClick?: () => void;
   className?: string;
@@ -15,6 +16,7 @@ const Button: React.FC<ButtonProps> = ({
   type = 'button',
   variant = 'primary',
   fullWidth = false,
+  disabled = false,
   onClick,
   className = '',
 }) => {
@@ -22,7 +24,8 @@ const Button: React.FC<ButtonProps> = ({
     <button
       type={type}
       onClick={onClick}
-      className={`${Styles.button} ${Styles[`button_${variant}`]} ${
+      disabled={disabled}
+      className={` ${Styles.button} ${Styles[`button_${variant}`]} ${
         fullWidth ? Styles.button_fullWidth : ''
       } ${className}`}>
       {children}

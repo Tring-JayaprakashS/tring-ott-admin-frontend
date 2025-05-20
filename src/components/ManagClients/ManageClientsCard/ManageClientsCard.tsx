@@ -1,18 +1,6 @@
 import { IC_CROWN_ICON, IC_THREE_DOT } from '../../../utlis/images';
+import { PlatformCardProps } from '../../../utlis/types/manageClientsType';
 import styles from './ManageClientsCard.module.scss';
-
-type PlatformCardProps = {
-  name: string;
-  logo?: string;
-  premium: boolean;
-  status: {
-    label: 'Active' | 'Inactive' | string;
-    value: boolean;
-  };
-  platforms: string[];
-  memberSince: string;
-  nextBilling: string;
-};
 
 export default function ManageClientsCard({
   name,
@@ -22,6 +10,7 @@ export default function ManageClientsCard({
   platforms,
   memberSince,
   nextBilling,
+  onDropdownToggle,
 }: PlatformCardProps) {
   return (
     <div className={styles.card}>
@@ -57,8 +46,12 @@ export default function ManageClientsCard({
               />
               <span className={styles.status_content}>{status.label}</span>
             </div>
-
-            <img src={IC_THREE_DOT} className={styles.menu} alt='menu' />
+            <img
+              src={IC_THREE_DOT}
+              alt='options'
+              className={styles.menu}
+              onClick={() => onDropdownToggle()}
+            />
           </div>
         </div>
 

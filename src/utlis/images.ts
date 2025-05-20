@@ -59,7 +59,11 @@ import IMG_MINNO_LOGO from '../assets/images/img_minno_logo.png';
 import IMG_CHECK_LOGO from '../assets/images/img_check+_logo.png';
 import IMG_ESTANTE_LOGO from '../assets/images/img_estante_logo.png';
 import IMG_KSL_LOGO from '../assets/images/img_ksl+_logo.png';
+import IC_INFO_ICON from '../assets/images/ic_info_icon.svg';
 
+import IC_DEACTIVATE_ICON from '../assets/images/ic_deactivate_icon.svg';
+import IC_DELETE_ICON from '../assets/images/ic_delete_icon.svg';
+import IC_CIRCLE_ICON from '../assets/images/ic_circle_icon.svg';
 export {
   IC_APP_LOGO,
   IC_DASHBOARD,
@@ -120,4 +124,8 @@ export {
   IMG_CHECK_LOGO,
   IMG_ESTANTE_LOGO,
   IMG_KSL_LOGO,
+  IC_INFO_ICON,
+  IC_DELETE_ICON,
+  IC_DEACTIVATE_ICON,
+  IC_CIRCLE_ICON,
 };

@@ -6,8 +6,11 @@
   }
 
   &_subtitle {
-    @apply opacity-60 text-xs font-normal mt-1;
+    @apply opacity-60 text-xs font-normal;
     color: var(--color-primary);
+  }
+  &_subtitle_div {
+    @apply mt-1;
   }
 
   &_actions {
@@ -29,7 +32,7 @@
   }
 
   &_filter {
-    @apply px-4 py-[10px] rounded-xl border border-gray-300 flex items-center gap-2;
+    @apply border border-gray-300;
     background: white;
 
     &_text {

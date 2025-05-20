@@ -1,10 +1,14 @@
 .breadcrumb {
-  @apply flex text-[12px]  mt-[6px];
-}
-
-.dashboard {
-  color: var(--color-secondary-500);
-}
-.image {
-  @apply w-[15px] h-[15px] ms-1 me-1;
+  @apply text-xs font-medium;
+  .link {
+    @apply opacity-80;
+    color: var(--color-primary);
+  }
+  .slash {
+    color: var(--subtitle-content);
+  }
+  .current {
+    @apply text-xs font-normal;
+    color: var(--subtitle-content);
+  }
 }

@@ -1,0 +1,73 @@
+.addUser_popup {
+  @apply fixed inset-0 flex justify-center items-center bg-black bg-opacity-50 z-50;
+}
+
+.addUser_popup_content {
+  @apply bg-white rounded-[20px] w-[500px] h-auto relative;
+}
+
+.addUser_popup_header {
+  @apply flex justify-between items-center;
+}
+
+.addUser_popup_title {
+  @apply text-xl font-medium  px-6 pt-6;
+  color: var(--color-primary);
+}
+
+.addUser_popup_close {
+  @apply p-4;
+}
+
+.addUser_popup_close_icon {
+  @apply h-6 w-6 cursor-pointer;
+}
+
+.addUser_popup_form {
+  @apply px-6 pb-6 pt-4;
+}
+
+.addUser_popup_label {
+  @apply block text-xs font-normal;
+  color: var(--color-primary);
+}
+
+.addUser_popup_input {
+  @apply block w-full h-[44px] mt-[6px] ps-[14px] font-normal text-sm border-[1.2px] border-[#0420361A] rounded-lg focus:outline-none;
+  color: var(--color-primary);
+}
+
+.addUser_popup_file_upload {
+  @apply flex justify-center mb-4;
+}
+
+.addUser_popup_file_preview {
+  @apply w-[66px] h-[66px] bg-blue-400 rounded-full;
+}
+.input_error {
+  @apply -mt-[14px]   block text-xs font-normal text-right;
+  color: var(--error-color);
+}
+.addUser_popup_file_change {
+  @apply underline  text-sm font-medium w-full object-cover text-center mt-[6px] cursor-pointer;
+  color: var(--color-success);
+  &_input {
+    @apply hidden;
+  }
+}
+
+.addUser_popup_actions {
+  @apply flex h-12 justify-end gap-4 mt-7;
+}
+
+.addUser_popup_discard {
+  @apply px-4 py-3;
+  color: var(--subtitle-content);
+}
+
+.addUser_popup_submit {
+  @apply h-[48px] w-[122px];
+}
+.addUser_popup_disabled_button {
+  @apply px-8 py-3 rounded-lg w-[122px] bg-[#6f6f83] font-medium text-base text-white cursor-not-allowed;
+}

@@ -1,0 +1,71 @@
+.appconfig_page {
+  @apply min-h-screen pt-[20px] w-full h-auto mx-auto;
+  max-width: 1420px;
+  background-color: var(--pages--component-bg);
+}
+
+.appconfig_page_head_wrap {
+  @apply px-[24px] w-full min-h-screen mb-4;
+}
+
+.appconfig_page_main {
+  @apply w-full max-w-[948px] h-[53px] flex flex-col gap-1;
+
+  &_title {
+    @apply min-w-[93px] h-[30px] font-medium text-[20px] leading-[20px] tracking-normal;
+    color: var(--color-primary);
+  }
+
+  &_subtitle {
+    @apply min-w-[448px] h-[18px] opacity-60 font-normal text-[12px];
+    color: var(--color-primary);
+  }
+}
+.card_wrapper {
+  @apply mt-[20px] flex gap-[30px] min-h-screen flex-wrap max-w-full;
+}
+
+.form_row {
+  @apply flex gap-4 mb-4;
+}
+.form_field {
+  @apply w-[270.67px];
+}
+.empty_space {
+  @apply w-[270.67px];
+}
+@media (max-width: 1024px) {
+  .client_details_mainwrap_section {
+    @apply flex-col;
+
+    &_img {
+      @apply w-[260px] max-w-[260px] mb-6;
+    }
+  }
+}
+
+.client_details_mainwrap {
+  @apply flex flex-col;
+  &_para {
+    color: var(--subtitle-content);
+    @apply font-[500px] text-[13px] mb-[16px];
+  }
+
+  &_section {
+    @apply flex;
+    &_img {
+      @apply w-[260px] h-[260px] me-[32px] border border-dashed pt-[54.5px] rounded-[10px] border-[#2C2C2C1A] flex-shrink-0;
+    }
+    &_form {
+      @apply w-full;
+    }
+  }
+}
+
+.input_field {
+  @apply w-[360px];
+}
+
+.section_language {
+  @apply flex gap-4;
+}

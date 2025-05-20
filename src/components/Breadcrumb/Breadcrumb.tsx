@@ -1,31 +1,33 @@
 import { useLocation, Link } from 'react-router-dom';
-// import { IC_RIGHT_ARROW } from '../../utlis/images';
 import styles from './Breadcrumb.module.scss';
+
+const formatLabel = (segment: string) => {
+  return segment
+    .replace(/-/g, ' ')
+    .replace(/\b\w/g, (char) => char.toUpperCase());
+};
 
 const Breadcrumb = () => {
   const location = useLocation();
-  const pathsegment: string[] = location.pathname.split('/').filter(Boolean);
-  let breadcrumblabel = '';
-  if (pathsegment.includes('AppConfiguration')) {
-    breadcrumblabel = 'AppConfiguration';
-  } else {
-    const lastsegment = pathsegment[pathsegment.length - 1];
-    breadcrumblabel = lastsegment;
-  }
+  const pathSegments = location.pathname.split('/').filter(Boolean);
+
+  const prevSegment =
+    pathSegments.length > 1 ? pathSegments[pathSegments.length - 2] : null;
+  const currentSegment = pathSegments[pathSegments.length - 1];
 
   return (
-    <div>
-      <p className={styles.breadcrumb}>
-        <Link to='/Dashboard' className={styles.dashboard}>
-          Dashboard
-        </Link>
-        {/* <img
-          src={IC_RIGHT_ARROW}
-          alt='right_arrow->'
-          className={styles.image}
-        /> */}
-        <span> {breadcrumblabel}</span>
-      </p>
+    <div className={styles.breadcrumb}>
+      {prevSegment && (
+        <>
+          <Link
+            to={`/${pathSegments.slice(0, -1).join('/')}`}
+            className={styles.link}>
+            {formatLabel(prevSegment)}
+          </Link>
+          <span className={styles.slash}> / </span>
+        </>
+      )}
+      <span className={styles.current}>{formatLabel(currentSegment)}</span>
     </div>
   );
 };

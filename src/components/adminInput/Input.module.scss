@@ -1,0 +1,83 @@
+.input_container {
+  @apply w-[245px] h-[68px] mb-5 relative;
+}
+
+.input_label {
+  @apply text-[13px] font-normal mb-[6px] block;
+  color: #2c2c2c99;
+}
+
+.input_wrapper {
+  @apply relative flex items-center rounded-[6px] w-full h-[44px];
+}
+
+.input_field {
+  @apply px-[14px] text-[14px] rounded-[6px] outline-none border-[1.2px] w-full h-[44px];
+  color: #2c2c2c66;
+  @apply placeholder:text-[14px];
+  &::placeholder {
+    color: var(--color-input-placeholder);
+  }
+}
+.toggle_button {
+  @apply absolute right-[14px] flex items-center justify-center bg-transparent border-none cursor-pointer;
+}
+
+.icon {
+  @apply text-[18px] opacity-50;
+  color: #2c2c2c66;
+}
+
+.select_wrapper {
+  @apply relative flex items-center rounded-[6px] w-full h-[44px];
+}
+
+.select_field {
+  @apply appearance-none cursor-pointer pr-[30px];
+}
+
+.select_arrow {
+  @apply absolute pointer-events-none right-[14px] w-[10px] h-[10px] border-t-0 border-r-[1.5px] border-b-[1.5px] border-l-0 rotate-45 transform -translate-y-1/2 top-[45%];
+  border-color: #2c2c2c66;
+}
+
+.date_wrapper {
+  @apply relative flex items-center rounded-[6px] w-full h-[44px];
+}
+
+.date_field {
+  @apply cursor-pointer;
+}
+
+.date_icon {
+  @apply absolute right-[14px] flex items-center justify-center pointer-events-none;
+
+  opacity: 0.5;
+}
+
+.phone_wrapper {
+  @apply relative flex items-center rounded-[6px] w-full h-[44px];
+}
+
+.country_code {
+  @apply h-[44px] min-w-[50px] flex items-center justify-center border-r-[1px] border-[1.2px] border-[#2A395026] rounded-[8px] me-2;
+}
+
+.code_select {
+  @apply h-full outline-none border-0 bg-transparent px-2 appearance-none cursor-pointer;
+  color: #2c2c2c66;
+}
+
+.phone_field {
+  @apply h-full;
+}
+
+.with_code {
+  @apply rounded-l-none border-l-0;
+}
+
+.input_icon {
+  @apply absolute right-[14px] flex items-center justify-center;
+  color: #2c2c2c66;
+  opacity: 0.5;
+}

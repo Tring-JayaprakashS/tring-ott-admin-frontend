@@ -1,0 +1,32 @@
+.modal_container_content_body {
+  @apply flex flex-col items-center text-center;
+}
+
+.success_icon {
+  @apply w-[74px] h-[74px] flex justify-center items-end;
+}
+
+.modal_container_content_body_message {
+  @apply my-7  w-full;
+  color: var(--color-primary);
+  &_title {
+    @apply font-medium text-[24px];
+  }
+  &_subtitle {
+    @apply opacity-50 font-normal text-[14px];
+    color: var(--color-primary);
+  }
+}
+
+.modal_container_button {
+  @apply w-[106px] h-[48px] ps-[12px] pe-[12px] pt-[20px] pb-[20px] rounded-[8px] text-[16px];
+  color: var(--color-primary);
+}
+
+.button_wrapper {
+  @apply flex justify-center items-center gap-4 w-full;
+}
+
+.addUser_popup_submit {
+  @apply h-[48px] w-[122px];
+}

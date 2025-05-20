@@ -1,8 +1,8 @@
 .bottomBarWrapper {
-  @apply flex justify-between items-center px-6 py-3 bg-white shadow border-t border-gray-200;
+  @apply flex justify-between items-center px-6 py-3 bg-white shadow;
 
   &_sticky {
-    @apply sticky bottom-0 flex justify-between items-center px-6 py-3 h-[72px] bg-white shadow border-t border-gray-200;
+    @apply sticky bottom-0 flex justify-between items-center px-6 py-3 h-[72px] bg-white shadow;
   }
 }
 
@@ -21,5 +21,11 @@
 }
 
 .saveButton {
-  @apply bg-[#7869FA] text-white px-4 py-2 rounded-xl font-medium hover:bg-[#8180FF] h-[48px] w-[123px];
+  @apply px-4 py-2 rounded-xl font-medium  h-[48px] w-[123px];
+  color: var(--color-primary);
+  background-color: var(--color-secondary);
+
+  &:hover {
+    background-color: var(--button-bg-hover);
+  }
 }
