@@ -59,6 +59,7 @@ import IMG_MINNO_LOGO from '../assets/images/img_minno_logo.png';
 import IMG_CHECK_LOGO from '../assets/images/img_check+_logo.png';
 import IMG_ESTANTE_LOGO from '../assets/images/img_estante_logo.png';
 import IMG_KSL_LOGO from '../assets/images/img_ksl+_logo.png';
+import IC_INFO_ICON from '../assets/images/ic_info_icon.svg';
 
 import IC_CHECKBOX from '../assets/images/ic_checkbox.svg';
 import IC_SAMSUNG from '../assets/images/ic_samsung.svg';
@@ -69,6 +70,9 @@ import IC_CALENDER from '../assets/images/ic_calender.svg';
 import IMG_COUNTRY_CODE from '../assets/images/img_country_code.svg';
 import IC_SELECT_ARROW_INPUT from '../assets/images/ic_select_arrow_input.svg';
 import IC_PHONE_COUNTRY_CODE from '../assets/images/ic_phone_country_code.svg';
+import IC_DEACTIVATE_ICON from '../assets/images/ic_deactivate_icon.svg';
+import IC_DELETE_ICON from '../assets/images/ic_delete_icon.svg';
+import IC_CIRCLE_ICON from '../assets/images/ic_circle_icon.svg';
 export {
   IC_APP_LOGO,
   IC_DASHBOARD,
@@ -138,4 +142,8 @@ export {
   IMG_COUNTRY_CODE,
   IC_SELECT_ARROW_INPUT,
   IC_PHONE_COUNTRY_CODE,
+  IC_INFO_ICON,
+  IC_DELETE_ICON,
+  IC_DEACTIVATE_ICON,
+  IC_CIRCLE_ICON,
 };

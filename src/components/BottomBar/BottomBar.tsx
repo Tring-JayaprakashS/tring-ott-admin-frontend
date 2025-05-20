@@ -5,15 +5,7 @@ import {
 } from '../../utlis/enums/bottomBar.enum';
 import { IC_CLOCK_ICON, IC_PREVIEW_ICON } from '../../utlis/images';
 import Button from '../Button/Button';
-
-type BottomBarProps = {
-  onSave: () => void;
-  onPreview?: () => void;
-  saveText?: string;
-  lastSavedText?: string;
-  state: BottomBarState;
-  position: BottomBarPosition;
-};
+import { BottomBarProps } from '../../utlis/types/bottomBar';
 
 const BottomBar = ({
   position,
@@ -37,16 +29,15 @@ const BottomBar = ({
 
       <div className={styles.bottomBarRight}>
         {state === BottomBarState.SHOW_WITH_DRAFT_AND_PREVIEW && (
-          <button className={styles.previewButton} onClick={onPreview}>
+          <Button
+            variant='transparent'
+            className={styles.previewButton}
+            onClick={onPreview}>
             Preview
             <img src={IC_PREVIEW_ICON} alt='' />
-          </button>
+          </Button>
         )}
-        <Button
-          type='button'
-          className={styles.saveButton}
-          variant='primary'
-          onClick={onSave}>
+        <Button type='button' onClick={onSave}>
           {saveText}
         </Button>
       </div>

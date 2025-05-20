@@ -1,16 +1,9 @@
 import { ShowAddButton } from '../../utlis/enums/fileUpload.enum';
 import { IC_ADD_ICON, IC_FILTER } from '../../utlis/images';
+import { MenuTitleProps } from '../../utlis/types/pageTitle';
+import Breadcrumb from '../Breadcrumb/Breadcrumb';
+import Button from '../Button/Button';
 import styles from './MenuTitle.module.scss';
-
-type MenuTitleProps = {
-  title: string;
-  subTitle: string;
-  showButtonstate: ShowAddButton;
-  buttonContent?: string;
-  onClick?: () => void;
-  showFilterButton?: boolean;
-  onFilterClick?: () => void;
-};
 
 const MenuTitle = ({
   title,
@@ -25,22 +18,34 @@ const MenuTitle = ({
     <div className={styles.menutitle}>
       <div className=''>
         <h2 className={styles.menutitle_title}>{title}</h2>
-        <p className={styles.menutitle_subtitle}>{subTitle}</p>
+        {subTitle ? (
+          <div className={styles.menutitle_subtitle_div}>
+            <p className={styles.menutitle_subtitle}>{subTitle}</p>
+          </div>
+        ) : (
+          <div className={styles.menutitle_subtitle_div}>
+            <Breadcrumb />
+          </div>
+        )}
       </div>
       <div className={styles.menutitle_actions}>
         {showFilterButton && (
-          <button className={styles.menutitle_filter} onClick={onFilterClick}>
+          <Button
+            onClick={onFilterClick}
+            type='button'
+            variant='transparent'
+            className={styles.menutitle_filter}>
             <img src={IC_FILTER} alt='filter' />
             <span className={styles.menutitle_filter_text}>Filter</span>
-          </button>
+          </Button>
         )}
         {showButtonstate === ShowAddButton.SHOW_BUTTON && (
-          <button className={styles.menutitle_button} onClick={onClick}>
+          <Button type='button' onClick={onClick} variant='primary'>
             <img src={IC_ADD_ICON} alt='adduser' />
             <span className={styles.menutitle_button_text}>
               {buttonContent}
             </span>
-          </button>
+          </Button>
         )}
       </div>
     </div>

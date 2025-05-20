@@ -1,0 +1,57 @@
+.menuItems {
+  &_menu_dropdown_container {
+    @apply absolute top-14 end-[-50px] flex min-w-[145px] py-3 px-4 rounded-[10px] border z-10;
+    background-color: var(--common-background-color);
+    box-shadow: 0px 3px 20px 2px rgba(0, 0, 0, 0.1);
+  }
+  &_dropdown_body {
+    @apply relative w-full  gap-[10px] flex flex-col;
+  }
+  &_dropdown_item {
+    @apply flex gap-3 py-[10px]  h-10 cursor-pointer;
+  }
+
+  &_dropdown_text {
+    @apply font-normal text-sm flex items-center;
+    color: var(--color-primary);
+  }
+}
+
+.menuItems_menu_dropdown_container::before {
+  content: '';
+  position: absolute;
+  top: -10.5px;
+  right: 45%;
+  width: 20px;
+  height: 20px;
+  transform: rotate(45deg);
+  background-color: white;
+  border-left: 1px solid rgba(128, 128, 128, 0.197);
+  border-top: 1px solid rgba(128, 128, 128, 0.197);
+  border-radius: 4px 0 0 0;
+}
+
+.menuItems_dropdown_item_link {
+  @apply flex gap-2 py-[10px] items-center text-sm text-blue-500 cursor-pointer underline h-9;
+  transition: color 0.2s;
+
+  &:hover {
+    text-decoration: underline;
+  }
+}
+
+.menuItems_dropdown_text_link {
+  @apply font-medium;
+}
+
+.menuItems_dropdown_divider {
+  @apply my-2 border-t border-[#2C2C2C1A] border-[1px];
+}
+
+.menuItems_dropdown_item {
+  @apply flex gap-3 py-[10px] cursor-pointer items-center;
+}
+
+.menuItems_dropdown_text {
+  @apply text-black text-sm;
+}

@@ -25,7 +25,7 @@ const Sidebar = () => {
   useEffect(() => {
     const matchingItem = menu.find((item) =>
       item.children?.some((child) =>
-        pathname.includes(child.path.replace(/\s+/g, '').toLowerCase())
+        pathname.includes(child.path.replace(/\s+/g, '-'))
       )
     );
     if (matchingItem) {
@@ -42,8 +42,13 @@ const Sidebar = () => {
     return () => window.removeEventListener('resize', handleResize);
   }, []);
 
-  const isActive = (route: string) =>
-    pathname.includes(route.replace(/\s+/g, '').toLowerCase());
+  const isActive = (route: string) => {
+    const normalizedRoute = route.replace(/\s+/g, '-').toLowerCase();
+
+    const fullPath = pathname.replace(/^\//, '').toLowerCase();
+
+    return fullPath === normalizedRoute || fullPath.includes(normalizedRoute);
+  };
 
   const handleSubmit = () => {
     logout();
@@ -58,10 +63,6 @@ const Sidebar = () => {
           <>
             <div className={styles.section_main_logo_img}>
               <img src={IC_APP_LOGO} alt='App Logo' />
-              {/* <p
-              className={`${styles.section_main_powered} ${sidebarOpen ? styles.section_main_powered_open : styles.section_main_powered_mini}`}>
-              Powered by Tring play
-            </p> */}
             </div>
           </>
         ) : (
@@ -106,7 +107,7 @@ const Sidebar = () => {
                 onClick={() => {
                   const anyChildActive = item.children?.some((child) =>
                     pathname.includes(
-                      child.path.replace(/\s+/g, '').toLowerCase()
+                      child.path.toLowerCase().replace(/\s+/g, '-')
                     )
                   );
 
@@ -117,7 +118,7 @@ const Sidebar = () => {
                   }
 
                   if (!anyChildActive) {
-                    navigate(item.list.replace(/\s+/g, '').toLowerCase());
+                    navigate(item.list.toLowerCase().replace(/\s+/g, '-'));
                   }
                 }}>
                 <img
@@ -157,7 +158,7 @@ const Sidebar = () => {
                       return (
                         <li key={child.label} title={child.label}>
                           <Link
-                            to={child.path.replace(/\s+/g, '').toLowerCase()}
+                            to={child.path.replace(/\s+/g, '-')}
                             className={styles.section_main_child_link}>
                             <span
                               className={styles.section_main_child_indicator}>
@@ -205,9 +206,7 @@ const Sidebar = () => {
                 `}
                 onClick={() => {
                   const anyChildActive = item.children?.some((child) =>
-                    pathname.includes(
-                      child.path.replace(/\s+/g, '').toLowerCase()
-                    )
+                    pathname.includes(child.path.replace(/\s+/g, ''))
                   );
 
                   if (openSubMenu === item.list && anyChildActive) {
@@ -217,7 +216,7 @@ const Sidebar = () => {
                   }
 
                   if (!anyChildActive) {
-                    navigate(item.list.replace(/\s+/g, '').toLowerCase());
+                    navigate(item.list.replace(/\s+/g, ''));
                   }
                 }}>
                 <img

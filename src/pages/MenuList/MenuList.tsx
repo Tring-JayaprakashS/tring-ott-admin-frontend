@@ -5,6 +5,11 @@ import SelectPlatform from '../../sections/AddClient/SelectPlatform/SelectPlatfo
 import CMSIntegration from '../../sections/AddClient/CMS&Integration/CMSIntegration';
 import Language from '../../sections/AddClient/Language/Language';
 import FeatureSettings from '../../sections/AddClient/FeatureSettings/FeatureSettings';
+import BottomBar from '../../components/BottomBar/BottomBar';
+import {
+  BottomBarPosition,
+  BottomBarState,
+} from '../../utlis/enums/bottomBar.enum';
 
 const MenuList = () => {
   return (
@@ -22,6 +27,13 @@ const MenuList = () => {
           <FeatureSettings />
         </div>
       </div>
+      <BottomBar
+        onSave={() => {}}
+        position={BottomBarPosition.STICKY}
+        state={BottomBarState.SHOW_ONLY_SAVE}
+        lastSavedText='not yet'
+        saveText='Generate'
+      />
     </div>
   );
 };

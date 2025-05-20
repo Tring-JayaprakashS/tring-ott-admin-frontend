@@ -2,21 +2,7 @@ import { useRef, useState } from 'react';
 import { IC_DROP_DOWN } from '../../utlis/images';
 import styles from './AccessDropDown.module.scss';
 import useClickOutside from '../../hooks/useClickOutside';
-
-export type Option = {
-  id: string;
-  name: string;
-};
-
-export type AccessDropDownProps = {
-  label: string;
-  selectedValue: string;
-  placeholder: string;
-  options: Option[];
-  onSelect: (option: Option) => void;
-  labelColor: string;
-  placeholderColor?: string;
-};
+import { AccessDropDownProps } from '../../utlis/types/manageClientsType';
 
 export const AccessDropDown = ({
   label,
@@ -24,8 +10,6 @@ export const AccessDropDown = ({
   placeholder,
   options,
   onSelect,
-  labelColor,
-  placeholderColor,
 }: AccessDropDownProps) => {
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
   const dropdownRef = useRef<HTMLDivElement>(null);
@@ -35,10 +19,7 @@ export const AccessDropDown = ({
 
   return (
     <div className={styles.dropdown_wrap}>
-      <label className={styles.dropdown_label} style={{ color: labelColor }}>
-        {label}
-      </label>
-
+      <label className={styles.dropdown_label}>{label}</label>
       <div className={styles.dropdown_container} ref={dropdownRef}>
         <div
           className={styles.dropdown_trigger}
@@ -50,8 +31,7 @@ export const AccessDropDown = ({
               selectedOption
                 ? styles.dropdown_selected
                 : styles.dropdown_placeholder
-            }
-            style={{ color: placeholderColor }}>
+            }>
             {selectedOption ? selectedOption.name : placeholder}
           </span>
           <div>

@@ -11,3 +11,7 @@
 .ManagClients_container {
   @apply grid gap-[16px]  grid-cols-1 sm:grid-cols-2 lg:grid-cols-3;
 }
+
+.ManagClients_card_wrapper {
+  @apply relative;
+}

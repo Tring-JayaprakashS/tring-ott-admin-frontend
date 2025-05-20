@@ -14,17 +14,12 @@ import {
   IMG_CHECK_LOGO,
   IMG_ESTANTE_LOGO,
   IMG_KSL_LOGO,
+  IC_DEACTIVATE_ICON,
+  IC_CIRCLE_ICON,
+  IC_DELETE_ICON,
+  IC_PREVIEW_ICON,
 } from '../utlis/images';
-
-type ManageClientsData = {
-  name: string;
-  logo: string;
-  premium: boolean;
-  status: { label: 'Active' | 'Deactivated' | string; value: boolean };
-  memberSince: string;
-  nextBilling: string;
-  platforms: string[];
-};
+import { LinkItem, ManageClientsData } from '../utlis/types/manageClientsType';
 
 const Clients: ManageClientsData[] = [
   {
@@ -144,3 +139,30 @@ const Clients: ManageClientsData[] = [
 ];
 
 export { Clients };
+
+export const accessOptions = [
+  { id: 'premium', name: 'Premium' },
+  { id: 'not-premium', name: 'Not Premium' },
+];
+
+export const statusOptions = [
+  { id: 'active', name: 'Active' },
+  { id: 'deactivated', name: 'Deactivated' },
+];
+
+export const actionItemsData = [
+  { id: 4, label: 'Deactivate', icon: IC_DEACTIVATE_ICON },
+  { id: 4, label: 'Activate', icon: IC_CIRCLE_ICON },
+  { id: 5, label: 'Delete', icon: IC_DELETE_ICON },
+];
+
+export const linkItems: LinkItem[] = [
+  { id: 1, label: 'Web', icon: IC_PREVIEW_ICON, url: 'https://web.com' },
+  {
+    id: 2,
+    label: 'Mobile',
+    icon: IC_PREVIEW_ICON,
+    url: 'https://mobile.com',
+  },
+  { id: 3, label: 'Tv', icon: IC_PREVIEW_ICON, url: 'https://tv.com' },
+];

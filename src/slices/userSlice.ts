@@ -1,5 +1,5 @@
 import { createSlice } from '@reduxjs/toolkit';
-import { ManageUsersData } from '../utlis/types/manageUserTypes';
+import { ManageUsersData } from '../utlis/types/manageClientsType';
 
 const initialState: { users: ManageUsersData[] } = {
   users: [],
