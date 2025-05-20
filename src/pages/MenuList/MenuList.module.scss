@@ -1,0 +1,26 @@
+.appconfig_page {
+  @apply min-h-screen pt-[20px] w-full h-auto mx-auto;
+  max-width: 1420px;
+  background-color: var(--pages--component-bg);
+}
+
+.appconfig_page_head_wrap {
+  @apply px-[24px] w-full min-h-screen mb-4;
+}
+
+.appconfig_page_main {
+  @apply w-full max-w-[948px] h-[53px] flex flex-col gap-1;
+
+  &_title {
+    @apply min-w-[93px] h-[30px] font-medium text-[20px] leading-[20px] tracking-normal;
+    color: var(--color-primary);
+  }
+
+  &_subtitle {
+    @apply min-w-[448px] h-[18px] opacity-60 font-normal text-[12px];
+    color: var(--color-primary);
+  }
+}
+.card_wrapper {
+  @apply mt-[20px] flex gap-[30px] min-h-screen flex-wrap max-w-full;
+}

@@ -42,6 +42,7 @@ export const menu: SidebarItem[] = [
     activeLogo: IC_THREE_USERS_ACTIVE,
     show: true,
   },
+  { list: 'MenuList', logo: IC_SETTINGS, show: true },
   {
     list: 'Subscriptions',
     logo: IC_SUBSCRIPITONS,

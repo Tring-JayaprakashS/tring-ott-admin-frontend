@@ -1,0 +1,42 @@
+.client_details_mainwrap {
+  @apply flex flex-col;
+  &_para {
+    color: var(--subtitle-content);
+    @apply font-[500px] text-[13px] mb-[16px];
+  }
+}
+
+.select_platform_section {
+  @apply flex items-start gap-[78px] w-[849.2986px] h-[68px] mb-[8px];
+  &_tv {
+    @apply flex flex-col w-[605.7654px] h-[68px] gap-2;
+    &_button {
+      @apply flex gap-2;
+    }
+  }
+  &_web {
+    @apply w-[195.5332px] h-[68px] flex flex-col gap-2;
+    &_button {
+      @apply flex gap-2;
+    }
+  }
+}
+
+.date_field {
+  &::-webkit-calendar-picker-indicator {
+    display: none !important;
+  }
+  appearance: textfield;
+}
+
+.date_icon {
+  cursor: pointer;
+  pointer-events: all;
+}
+
+.selected_platform {
+  border-radius: 50px;
+  border: 1px solid #66b5b3;
+
+  background: #66b5b31a;
+}

@@ -1,0 +1,41 @@
+.client_details_mainwrap {
+  @apply flex flex-col;
+  &_para {
+    color: var(--subtitle-content);
+    @apply font-[500px] text-[13px] mb-[16px];
+  }
+
+  &_section {
+    @apply flex;
+    &_img {
+      @apply w-[260px] h-[260px] me-[32px] border border-dashed pt-[54.5px] rounded-[10px] border-[#2C2C2C1A] flex-shrink-0;
+    }
+    &_form {
+      @apply w-full;
+    }
+  }
+}
+
+.form_row {
+  @apply flex gap-4 mb-4;
+}
+.form_field {
+  @apply w-[240.67px];
+}
+.empty_space {
+  @apply w-[240.67px];
+}
+
+@media (max-width: 1024px) {
+  .client_details_mainwrap_section {
+    @apply flex-col;
+
+    &_img {
+      @apply w-[260px] max-w-[260px] mb-6;
+    }
+  }
+}
+
+.productionReleaseDate {
+  @apply w-[297px];
+}

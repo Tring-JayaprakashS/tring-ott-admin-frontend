@@ -10,6 +10,7 @@ import { useAUth } from '../context/Authcontext';
 import ProtectedRoute from './ProtectedRoute';
 import ResetPassword from '../pages/auth/resetPassword/resetPassword';
 import ManageClients from '../pages/ManageClients/ManageClients';
+import MenuList from '../pages/MenuList/MenuList';
 import Subscriptions from '../pages/Subscriptions/Subscriptions';
 import { ClientList } from '../pages/ClientList/ClientList';
 import AuditLogs from '../pages/AuditLogs/AuditLogs';
@@ -36,6 +37,7 @@ const Router = () => {
           <Route index element={<Navigate to='dashboard' replace />} />
           <Route path='dashboard' element={<Dashboard />} />
           <Route path='manageclients' element={<ManageClients />} />
+          <Route path='MenuList' element={<MenuList />} />
           <Route path='subscriptions' element={<Subscriptions />} />
           <Route path='clientList' element={<ClientList />} />
           <Route path='auditLogs' element={<AuditLogs />} />

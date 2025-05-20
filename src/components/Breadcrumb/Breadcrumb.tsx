@@ -19,11 +19,7 @@ const Breadcrumb = () => {
         <Link to='/Dashboard' className={styles.dashboard}>
           Dashboard
         </Link>
-        {/* <img
-          src={IC_RIGHT_ARROW}
-          alt='right_arrow->'
-          className={styles.image}
-        /> */}
+        <span className={styles.slash}> / </span>
         <span> {breadcrumblabel}</span>
       </p>
     </div>

@@ -1,0 +1,15 @@
+.client_details_mainwrap {
+  @apply flex flex-col;
+  &_para {
+    color: var(--subtitle-content);
+    @apply font-[500px] text-[13px] mb-[16px];
+  }
+}
+
+.section_language {
+  @apply flex gap-4;
+}
+
+.select {
+  @apply w-[368px];
+}

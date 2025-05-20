@@ -60,6 +60,15 @@ import IMG_CHECK_LOGO from '../assets/images/img_check+_logo.png';
 import IMG_ESTANTE_LOGO from '../assets/images/img_estante_logo.png';
 import IMG_KSL_LOGO from '../assets/images/img_ksl+_logo.png';
 
+import IC_CHECKBOX from '../assets/images/ic_checkbox.svg';
+import IC_SAMSUNG from '../assets/images/ic_samsung.svg';
+import IC_WEB from '../assets/images/ic_web.svg';
+import IC_APPLE_WEB from '../assets/images/ic_apple_web.svg';
+import IC_ANDROID_WEB from '../assets/images/ic_android_web.svg';
+import IC_CALENDER from '../assets/images/ic_calender.svg';
+import IMG_COUNTRY_CODE from '../assets/images/img_country_code.svg';
+import IC_SELECT_ARROW_INPUT from '../assets/images/ic_select_arrow_input.svg';
+import IC_PHONE_COUNTRY_CODE from '../assets/images/ic_phone_country_code.svg';
 export {
   IC_APP_LOGO,
   IC_DASHBOARD,
@@ -120,4 +129,13 @@ export {
   IMG_CHECK_LOGO,
   IMG_ESTANTE_LOGO,
   IMG_KSL_LOGO,
+  IC_CHECKBOX,
+  IC_SAMSUNG,
+  IC_WEB,
+  IC_APPLE_WEB,
+  IC_ANDROID_WEB,
+  IC_CALENDER,
+  IMG_COUNTRY_CODE,
+  IC_SELECT_ARROW_INPUT,
+  IC_PHONE_COUNTRY_CODE,
 };
