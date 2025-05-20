@@ -1,6 +1,13 @@
-import React, { useState } from 'react';
+import React, { useRef, useState } from 'react';
 import Styles from './Input.module.scss';
-import { IC_HIDE_EYE, IC_SHOW_EYE } from '../../utlis/images';
+import {
+  IC_CALENDER,
+  IC_HIDE_EYE,
+  IC_SHOW_EYE,
+  IC_SELECT_ARROW_INPUT,
+  IC_PHONE_COUNTRY_CODE,
+} from '../../utlis/images';
+import { getCountryCodeImage } from '../../utlis/helpers/ClientDetails';
 
 type InputType = 'text' | 'password' | 'email' | 'phone' | 'date' | 'select';
 
@@ -23,7 +30,7 @@ interface InputProps {
   options?: SelectOption[];
   containerStyles?: string;
   inputStyles?: string;
-  icon?: React.ReactNode;
+  iconUrl?: string;
   labelStylses?: string;
   dateFormat?: string;
   countryCode?: string;
@@ -48,12 +55,24 @@ const Input: React.FC<InputProps> = ({
   labelStylses = '',
   dateFormat = 'MM/DD/YYYY',
   countryCode,
-  icon,
+  iconUrl,
   onCountryCodeChange,
 
   width,
   height,
 }) => {
+  const calenderinput = useRef<HTMLInputElement>(null);
+  const handleIconClick = () => {
+    if (calenderinput.current) {
+      calenderinput.current.focus();
+      calenderinput.current.type = 'date';
+      if (calenderinput.current.showPicker) {
+        calenderinput.current.showPicker();
+      } else {
+        calenderinput.current.click();
+      }
+    }
+  };
   const [showPassword, setShowPassword] = useState<boolean>(false);
   const tooglepassword = (): void => {
     setShowPassword(!showPassword);
@@ -62,7 +81,6 @@ const Input: React.FC<InputProps> = ({
 
   const containerClass = `${Styles.input_container} ${containerStyles}`;
 
-  const customContainerStyle: React.CSSProperties = width ? { width } : {};
   const customInputStyle: React.CSSProperties = {};
 
   if (width) customInputStyle.width = width;
@@ -81,8 +99,9 @@ const Input: React.FC<InputProps> = ({
               name={name}
               value={value}
               onChange={onChange}
-              className={`${inputClass} ${Styles.select_field}`}>
-              <option value='' disabled selected>
+              className={`${inputClass} ${Styles.select_field}`}
+              style={value ? {} : { color: '#2C2C2C66' }}>
+              <option value='' disabled>
                 {placeholder}
               </option>
               {options.map((option) => (
@@ -91,7 +110,14 @@ const Input: React.FC<InputProps> = ({
                 </option>
               ))}
             </select>
-            <div className={Styles.select_arrow}></div>
+
+            <div className={Styles.select_arrow}>
+              <img
+                src={IC_SELECT_ARROW_INPUT}
+                alt='select_arrow_input'
+                className={Styles.select_arrow_img}
+              />
+            </div>
           </div>
         );
 
@@ -99,31 +125,23 @@ const Input: React.FC<InputProps> = ({
         return (
           <div className={Styles.date_wrapper}>
             <input
+              ref={calenderinput}
               type='text'
               placeholder={dateFormat}
               value={value}
               onChange={onChange}
               name={name}
               className={`${inputClass} ${Styles.date_field}`}
-              onFocus={(e) => (e.target.type = 'date')}
+              onClick={(e) => {
+                e.currentTarget.type = 'date';
+                e.currentTarget.showPicker && e.currentTarget.showPicker();
+              }}
               onBlur={(e) => {
                 if (!e.target.value) e.target.type = 'text';
               }}
             />
-            <div className={Styles.date_icon}>
-              {icon || (
-                <svg
-                  viewBox='0 0 24 24'
-                  width='18'
-                  height='18'
-                  stroke='currentColor'
-                  fill='none'>
-                  <rect x='3' y='4' width='18' height='18' rx='2' ry='2'></rect>
-                  <line x1='16' y1='2' x2='16' y2='6'></line>
-                  <line x1='8' y1='2' x2='8' y2='6'></line>
-                  <line x1='3' y1='10' x2='21' y2='10'></line>
-                </svg>
-              )}
+            <div className={Styles.date_icon} onClick={handleIconClick}>
+              <img src={iconUrl || IC_CALENDER} alt='date icon' />
             </div>
           </div>
         );
@@ -143,6 +161,19 @@ const Input: React.FC<InputProps> = ({
                   <option value='+44'>+44</option>
                   <option value='+91'>+91</option>
                 </select>
+                <img
+                  src={getCountryCodeImage(countryCode)}
+                  alt={`${countryCode} flag`}
+                  className={Styles.country_flag}
+                />
+
+                <div className={Styles.select_arrow_phone}>
+                  <img
+                    src={IC_PHONE_COUNTRY_CODE}
+                    alt='select_arrow_input'
+                    className={Styles.select_arrow_phone_img}
+                  />
+                </div>
               </div>
             )}
             <input

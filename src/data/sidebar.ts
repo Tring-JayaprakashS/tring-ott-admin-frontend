@@ -36,6 +36,7 @@ export const menu: SidebarItem[] = [
     activeLogo: IC_THREE_USERS_ACTIVE,
     show: true,
   },
+
   {
     list: 'Subscriptions',
     logo: IC_SUBSCRIPITONS,
@@ -57,7 +58,6 @@ export const menu: SidebarItem[] = [
     activeLogo: IC_RELEASE_NOTES_ICON,
     show: true,
   },
-  { list: 'MenuList', logo: IC_SETTINGS, show: true },
 ];
 
 export const others: SidebarItem[] = [

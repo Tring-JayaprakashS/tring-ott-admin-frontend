@@ -1,0 +1,16 @@
+.button {
+  @apply flex justify-center h-10  pt-[10px] pb-[10px] ps-[20px] pe-[20px]   cursor-pointer border border-[#2C2C2C0D] rounded-[50px] bg-[#2C2C2C0D];
+  &_image {
+    @apply flex  justify-center items-center;
+    &_url {
+      @apply object-cover;
+    }
+  }
+  &_text {
+    @apply flex justify-center items-center;
+
+    &_name {
+      @apply font-normal text-[#2C2C2C] text-[14px] whitespace-nowrap;
+    }
+  }
+}

@@ -1,0 +1,95 @@
+.client_details_mainwrap {
+  @apply flex flex-col;
+  &_para {
+    color: var(--subtitle-content);
+    @apply font-[500px] text-[13px] mb-[16px];
+  }
+}
+
+.feature_setting_section {
+  @apply flex flex-col gap-4;
+  &_head {
+    @apply text-[#2C2C2C] text-[14px] font-medium;
+  }
+  &_card {
+    @apply flex flex-row flex-wrap items-start gap-2 w-[1136px] h-[88px];
+  }
+  &_border {
+    @apply border-b border-dashed  border-[#2C2C2C33];
+  }
+  &_input {
+    @apply flex gap-4;
+  }
+}
+
+.checkbox {
+  @apply flex;
+  &_input {
+    @apply w-[18.5px] h-[18.5px] accent-[#66B5B3];
+  }
+  &_label {
+    @apply ms-[6px] text-[13px] font-[400px] text-[#2C2C2C];
+  }
+}
+
+.social_login_provider {
+  @apply w-[191px];
+}
+
+.guest_streaming {
+  @apply w-[158px];
+}
+
+.onboarding_screen {
+  @apply w-[177px];
+}
+
+.search {
+  @apply w-[90px];
+}
+
+.favourite {
+  @apply w-[105px];
+}
+
+.continue_watching {
+  @apply w-[176px];
+}
+
+.recomment_content_enabled {
+  @apply w-[270px];
+}
+
+.download {
+  @apply w-[111px];
+}
+
+.client_details_mainwrap {
+  @apply flex flex-col;
+  &_para {
+    color: var(--subtitle-content);
+    @apply font-[500px] text-[13px] mb-[16px];
+  }
+
+  &_section {
+    @apply flex;
+    &_img {
+      @apply w-[260px] h-[260px] me-[32px] border border-dashed pt-[54.5px] rounded-[10px] border-[#2C2C2C1A] flex-shrink-0;
+    }
+    &_form {
+      @apply w-full;
+    }
+  }
+}
+
+.analytics_section_para {
+  @apply text-[#2C2C2C] font-normal text-[14px];
+}
+
+.analytics_section_buttons {
+  @apply flex gap-2;
+}
+
+.select {
+  @apply w-[368px];
+}

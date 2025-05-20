@@ -1,0 +1,35 @@
+.client_details_mainwrap {
+  @apply flex flex-col;
+  &_para {
+    color: var(--subtitle-content);
+    @apply font-[500px] text-[13px] mb-[16px];
+  }
+
+  &_section {
+    @apply flex;
+    &_img {
+      @apply w-[260px] h-[260px] me-[32px] border border-dashed pt-[54.5px] rounded-[10px] border-[#2C2C2C1A] flex-shrink-0;
+    }
+    &_form {
+      @apply w-full;
+    }
+  }
+}
+
+.analytics_section_para {
+  @apply text-[#2C2C2C] font-normal text-[14px];
+}
+
+.analytics_section_buttons {
+  @apply flex gap-2;
+}
+
+.checkbox {
+  @apply flex;
+  &_input {
+    @apply w-[18.5px] h-[18.5px] accent-[#66B5B3];
+  }
+  &_label {
+    @apply ms-[6px] text-[13px] font-[400px] text-[#2C2C2C];
+  }
+}

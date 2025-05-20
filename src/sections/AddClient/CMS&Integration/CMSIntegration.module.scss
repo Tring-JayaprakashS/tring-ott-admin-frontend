@@ -1,0 +1,15 @@
+.input_field {
+  @apply w-[360px];
+}
+
+.client_details_mainwrap {
+  @apply flex flex-col;
+  &_para {
+    color: var(--subtitle-content);
+    @apply font-[500px] text-[13px] mb-[16px];
+  }
+}
+
+.cliIntegration_row {
+  @apply w-[368px];
+}

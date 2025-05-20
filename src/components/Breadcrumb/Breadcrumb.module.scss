@@ -12,3 +12,7 @@
     color: var(--subtitle-content);
   }
 }
+
+.slash {
+  @apply ms-1 me-1 text-[#2C2C2C99] font-[400] text-[13px];
+}
