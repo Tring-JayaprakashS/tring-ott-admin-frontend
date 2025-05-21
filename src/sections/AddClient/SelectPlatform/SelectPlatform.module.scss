@@ -22,13 +22,6 @@
   }
 }
 
-.date_field {
-  &::-webkit-calendar-picker-indicator {
-    display: none !important;
-  }
-  appearance: textfield;
-}
-
 .date_icon {
   cursor: pointer;
   pointer-events: all;
@@ -36,7 +29,8 @@
 
 .selected_platform {
   border-radius: 50px;
-  border: 1px solid #66b5b3;
+  border: 1px solid;
+  border-color: var(--checkbox-accent);
 
   background: #66b5b31a;
 }

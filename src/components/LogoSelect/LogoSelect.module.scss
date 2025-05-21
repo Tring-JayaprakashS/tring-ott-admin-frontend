@@ -1,0 +1,34 @@
+.logo_container {
+  @apply w-[240px] h-[240px] border border-dashed rounded-[14.4px] relative flex justify-center items-center overflow-hidden;
+
+  &_file {
+    @apply flex justify-between items-center;
+    &_name_container {
+      @apply flex gap-1;
+    }
+    &_name {
+      @apply text-[#042036CC] text-sm font-normal;
+    }
+    &_size_container {
+      @apply flex gap-4;
+    }
+    &_size {
+      @apply text-[#04203666] text-sm font-normal;
+    }
+  }
+  &_prev_img {
+    @apply h-[240px];
+  }
+}
+.logo_close_icon {
+  @apply h-5 w-5 cursor-pointer;
+}
+.logo_replace_icon_container {
+  @apply flex gap-2 px-0 py-0 rounded-md z-[1];
+}
+.logo_container_file_change_input {
+  @apply hidden;
+}
+.logo_container_file_change {
+  @apply absolute top-[12px] right-[12px];
+}

@@ -35,14 +35,14 @@ const FileUploader: React.FC<FileUploaderProps> = ({
         />
       </div>
       <div className={styles.fileuploader_text}>
-        <span>Drag & Drop </span>
+        <span className={styles.drag_and_drop}>Drag & Drop </span>
         <span className={styles.fileuploader_drop}>file here or</span>
         <span className={styles.fileuploader_highlight}> Browse</span>
         <p className={styles.fileuploader_filetypes}>
           File types: {fileType.replace(/\./g, '').toUpperCase()}
         </p>
         {state === FileUploaderSize.SHOW_SIZE && (
-          <p className={styles.fileuploader_fileSize}>File size: Maximum 2MB</p>
+          <p className={styles.fileuploader_fileSize}>File size: Maximum 1MB</p>
         )}
       </div>
     </div>

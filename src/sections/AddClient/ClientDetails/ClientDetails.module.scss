@@ -8,7 +8,8 @@
   &_section {
     @apply flex;
     &_img {
-      @apply w-[260px] h-[260px] me-[32px] border border-dashed pt-[54.5px] rounded-[10px] border-[#2C2C2C1A] flex-shrink-0;
+      @apply w-[240px]  me-[16px] border border-dashed rounded-[10px]  flex-shrink-0;
+      border-color: var(--border-color);
     }
     &_form {
       @apply w-full;
@@ -38,4 +39,8 @@
 
 .productionReleaseDate {
   @apply w-[297px];
+}
+
+.section_border {
+  @apply border-r border-[#2C2C2C1A] border-[1px] me-[16px];
 }

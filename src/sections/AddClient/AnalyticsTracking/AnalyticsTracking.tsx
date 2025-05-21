@@ -1,23 +1,31 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import styles from './AnalyticsTracking.module.scss';
 import TitleCard from '../../../components/TitleCard/TitleCard';
 import PlatformCard from '../../../components/platformCard/PlatformCard';
 import { ANALYTICS_TRACKING } from '../../../data/PlatformCard';
+import { useAddClient } from '../../../context/AddClientContext';
 import { PlatformCardVariant } from '../../../utlis/enums/platformCard.enum';
 
 const AnalyticsTracking = () => {
-  const [selectedPlatforms, setSelectedPlatforms] = useState<string[]>([]);
-  const handleSelect = (platformId: string) => {
-    setSelectedPlatforms((prevSelected) => {
-      if (prevSelected.includes(platformId)) {
-        return prevSelected.filter((id) => id !== platformId);
-      } else {
-        return [...prevSelected, platformId];
-      }
-    });
+  const { formData, updateFormData } = useAddClient();
+
+  const handleStreamingSelect = (platformId: string) => {
+    const currentSelected = [...formData.primaryStreamingFeature];
+    if (currentSelected.includes(platformId)) {
+      const updated = currentSelected.filter((id) => id !== platformId);
+      updateFormData({ primaryStreamingFeature: updated });
+    } else {
+      updateFormData({
+        primaryStreamingFeature: [...currentSelected, platformId],
+      });
+    }
   };
-  const isSelected = (platformId: string): boolean => {
-    return selectedPlatforms.includes(platformId);
+  const isStreamingSelected = (platformId: string): boolean => {
+    return formData.primaryStreamingFeature.includes(platformId);
+  };
+  const handleCheckboxSelect = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const { name, checked } = e.target;
+    updateFormData({ [name]: checked });
   };
   return (
     <TitleCard title='Analytics & Tracking'>
@@ -32,15 +40,21 @@ const AnalyticsTracking = () => {
               isImage={false}
               text={platform.text}
               platformId={platform.id}
-              isSelected={isSelected(platform.id)}
-              onClick={handleSelect}
+              isSelected={isStreamingSelected(platform.id)}
+              onClick={handleStreamingSelect}
             />
           </div>
         ))}
       </div>
       <div className={styles.checkbox}>
         <div className={styles.checkbox_image}>
-          <input type='checkbox' className={styles.checkbox_input} />
+          <input
+            type='checkbox'
+            checked={formData.playerAnalytics}
+            onChange={(e) => handleCheckboxSelect(e)}
+            name='playerAnalytics'
+            className={styles.checkbox_input}
+          />
         </div>
         <div className={styles.checkbox_label}>
           <p>Player analytics</p>

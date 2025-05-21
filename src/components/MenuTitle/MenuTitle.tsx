@@ -13,6 +13,7 @@ const MenuTitle = ({
   onClick,
   showFilterButton,
   onFilterClick,
+  buttonImage = IC_ADD_ICON,
 }: MenuTitleProps) => {
   return (
     <div className={styles.menutitle}>
@@ -41,7 +42,7 @@ const MenuTitle = ({
         )}
         {showButtonstate === ShowAddButton.SHOW_BUTTON && (
           <Button type='button' onClick={onClick} variant='primary'>
-            <img src={IC_ADD_ICON} alt='adduser' />
+            <img src={buttonImage} alt='adduser' />
             <span className={styles.menutitle_button_text}>
               {buttonContent}
             </span>

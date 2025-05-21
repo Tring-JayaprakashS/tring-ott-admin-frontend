@@ -73,6 +73,8 @@ import IC_PHONE_COUNTRY_CODE from '../assets/images/ic_phone_country_code.svg';
 import IC_DEACTIVATE_ICON from '../assets/images/ic_deactivate_icon.svg';
 import IC_DELETE_ICON from '../assets/images/ic_delete_icon.svg';
 import IC_CIRCLE_ICON from '../assets/images/ic_circle_icon.svg';
+import IC_DOWNLOAD_LOGO from '../assets/images/ic_download_logo.svg';
+import IC_EDIT_DETAILS from '../assets/images/ic_edit_details.svg';
 export {
   IC_APP_LOGO,
   IC_DASHBOARD,
@@ -146,4 +148,6 @@ export {
   IC_DELETE_ICON,
   IC_DEACTIVATE_ICON,
   IC_CIRCLE_ICON,
+  IC_DOWNLOAD_LOGO,
+  IC_EDIT_DETAILS,
 };

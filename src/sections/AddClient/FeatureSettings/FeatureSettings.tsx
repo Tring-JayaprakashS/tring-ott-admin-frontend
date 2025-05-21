@@ -3,39 +3,47 @@ import styles from './FeatureSetting.module.scss';
 import TitleCard from '../../../components/TitleCard/TitleCard';
 import PlatformCard from '../../../components/platformCard/PlatformCard';
 import Input from '../../../components/adminInput/Input';
-import { PRIMARY_STREAMING_FEATURE } from '../../../data/PlatformCard';
+import {
+  PRIMARY_STREAMING_FEATURE,
+  platformsoptions,
+} from '../../../data/PlatformCard';
 import AnalyticsTracking from '../AnalyticsTracking/AnalyticsTracking';
+import { CheckboxMultiSelectDropdown } from '../../../components/MultiSelectDropdown/MultiSelectDropdown';
+import { useAddClient } from '../../../context/AddClientContext';
 import { PlatformCardVariant } from '../../../utlis/enums/platformCard.enum';
 
 const FeatureSettings = () => {
-  const [clientForm, setClientForm] = useState({
-    tools: '',
-    adDeliveryProvider: '',
-    ChoosePlatform: '',
-  });
+  const { formData, updateFormData } = useAddClient();
+
+  const handleCheckbox = (selectedLanguages: string[]) => {
+    updateFormData({ subscriptionPlatforms: selectedLanguages });
+  };
+
+  const handleCheckboxSelect = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const { name, checked } = e.target;
+    updateFormData({ [name]: checked });
+  };
 
   const handleInputChange = (
     e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>
   ) => {
     const { name, value } = e.target;
-    setClientForm((prev) => ({
-      ...prev,
-      [name]: value,
-    }));
+    updateFormData({ [name]: value });
   };
 
-  const [selectedPlatforms, setSelectedPlatforms] = useState<string[]>([]);
-  const handleSelect = (platformId: string) => {
-    setSelectedPlatforms((prevSelected) => {
-      if (prevSelected.includes(platformId)) {
-        return prevSelected.filter((id) => id !== platformId);
-      } else {
-        return [...prevSelected, platformId];
-      }
-    });
+  const handleStreamingSelect = (platformId: string) => {
+    const currentSelected = [...formData.primaryStreamingFeature];
+    if (currentSelected.includes(platformId)) {
+      const updated = currentSelected.filter((id) => id !== platformId);
+      updateFormData({ primaryStreamingFeature: updated });
+    } else {
+      updateFormData({
+        primaryStreamingFeature: [...currentSelected, platformId],
+      });
+    }
   };
-  const isSelected = (platformId: string): boolean => {
-    return selectedPlatforms.includes(platformId);
+  const isStreamingSelected = (platformId: string): boolean => {
+    return formData.primaryStreamingFeature.includes(platformId);
   };
 
   return (
@@ -57,8 +65,8 @@ const FeatureSettings = () => {
                 isImage={false}
                 text={platform.text}
                 platformId={platform.id}
-                isSelected={isSelected(platform.id)}
-                onClick={handleSelect}
+                isSelected={isStreamingSelected(platform.id)}
+                onClick={handleStreamingSelect}
               />
             </div>
           ))}
@@ -69,7 +77,13 @@ const FeatureSettings = () => {
         </div>
         <div className={styles.checkbox}>
           <div className={styles.checkbox_image}>
-            <input type='checkbox' className={styles.checkbox_input} />
+            <input
+              type='checkbox'
+              checked={formData.advertisement}
+              onChange={(e) => handleCheckboxSelect(e)}
+              name='advertisement'
+              className={styles.checkbox_input}
+            />
           </div>
           <div className={styles.checkbox_label}>
             <p>Advertisement</p>
@@ -82,7 +96,7 @@ const FeatureSettings = () => {
               type='select'
               name='tools'
               placeholder='-Select-'
-              value={clientForm.tools}
+              value={formData.tools}
               onChange={handleInputChange}
               options={[
                 { value: 'En', label: 'English' },
@@ -101,7 +115,7 @@ const FeatureSettings = () => {
               type='text'
               name='adDeliveryProvider'
               placeholder='Enter client name'
-              value={clientForm.adDeliveryProvider}
+              value={formData.adDeliveryProvider}
               containerStyles={styles.form_field}
               onChange={handleInputChange}
               width='360px'
@@ -111,7 +125,13 @@ const FeatureSettings = () => {
         </div>
         <div className={styles.checkbox}>
           <div className={styles.checkbox_image}>
-            <input type='checkbox' className={styles.checkbox_input} />
+            <input
+              type='checkbox'
+              checked={formData.subscription}
+              onChange={(e) => handleCheckboxSelect(e)}
+              name='subscription'
+              className={styles.checkbox_input}
+            />
           </div>
           <div className={styles.checkbox_label}>
             <p>Subscription</p>
@@ -119,22 +139,12 @@ const FeatureSettings = () => {
         </div>
         <div>
           <div className={styles.select}>
-            <Input
-              label='Choose Platform'
-              type='select'
-              name='ChoosePlatform'
+            <CheckboxMultiSelectDropdown
+              label='Choose Pltaform'
+              selected={formData.subscriptionPlatforms}
+              options={platformsoptions}
+              onChange={handleCheckbox}
               placeholder='-Select-'
-              value={clientForm.ChoosePlatform}
-              onChange={handleInputChange}
-              options={[
-                { value: 'En', label: 'English' },
-                { value: 'Ta', label: 'Tamil' },
-                { value: 'Hi', label: 'Hindi' },
-              ]}
-              containerStyles={styles.form_field}
-              inputStyles={styles.input_field}
-              width='360px'
-              height='44px'
             />
           </div>
         </div>

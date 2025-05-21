@@ -3,21 +3,23 @@ import styles from './SelectPlatform.module.scss';
 import TitleCard from '../../../components/TitleCard/TitleCard';
 import PlatformCard from '../../../components/platformCard/PlatformCard';
 import { TV_PLATFORMS, WEB_MOBILE_PLATFORMS } from '../../../data/PlatformCard';
+import { useAddClient } from '../../../context/AddClientContext';
 import { PlatformCardVariant } from '../../../utlis/enums/platformCard.enum';
 
 const SelectPlatform: React.FC = () => {
-  const [selectedPlatforms, setSelectedPlatforms] = useState<string[]>([]);
+  const { formData, updateFormData } = useAddClient();
+
   const handleSelect = (platformId: string) => {
-    setSelectedPlatforms((prevSelected) => {
-      if (prevSelected.includes(platformId)) {
-        return prevSelected.filter((id) => id !== platformId);
-      } else {
-        return [...prevSelected, platformId];
-      }
-    });
+    const currentSelected = [...formData.selectedPlatforms];
+    if (currentSelected.includes(platformId)) {
+      const updated = currentSelected.filter((id) => id !== platformId);
+      updateFormData({ selectedPlatforms: updated });
+    } else {
+      updateFormData({ selectedPlatforms: [...currentSelected, platformId] });
+    }
   };
   const isSelected = (platformId: string): boolean => {
-    return selectedPlatforms.includes(platformId);
+    return formData.selectedPlatforms.includes(platformId);
   };
   return (
     <TitleCard title='Select Platform'>

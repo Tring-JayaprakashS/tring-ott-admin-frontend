@@ -18,10 +18,9 @@ const BottomBar = ({
   return (
     <div
       className={`${styles.bottomBarWrapper}  ${
-        position === BottomBarPosition.STICKY
-          ? styles.bottomBarWrapper_sticky
-          : ''
-      }`}>
+        position === BottomBarPosition.STICKY && styles.bottomBarWrapper_sticky
+      }
+      ${state === BottomBarState.HIDE_BOTTOM_BAR && styles.bottomBarWrapper_display_none}`}>
       <div className={styles.bottomBarLeft}>
         <img src={IC_CLOCK_ICON} alt='' />
         <span>Last Saved : {lastSavedText}</span>

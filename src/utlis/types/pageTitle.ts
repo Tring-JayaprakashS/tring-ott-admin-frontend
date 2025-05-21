@@ -8,4 +8,5 @@ export type MenuTitleProps = {
   onClick?: () => void;
   showFilterButton?: boolean;
   onFilterClick?: () => void;
+  buttonImage?: string;
 };
