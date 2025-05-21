@@ -1,0 +1,73 @@
+.container {
+  @apply relative w-full;
+}
+
+.label {
+  @apply block text-sm mb-2;
+  color: var(--subtitle-content);
+}
+
+.selectWrapper {
+  @apply relative;
+}
+
+.selectBox {
+  @apply w-[368px] h-[44px]  border rounded-md bg-white px-3 py-2 flex items-center justify-between cursor-pointer;
+  color: var(--border-color);
+
+  &::placeholder {
+    color: var(--color-input-placeholder);
+  }
+}
+
+.displayText {
+  @apply font-[400px] text-[14px];
+  color: var(--color-primary);
+}
+
+.placeholder {
+  @apply text-sm opacity-40;
+  color: var(--color-primary);
+}
+
+.dropdownIcon {
+  @apply flex items-center;
+}
+
+.dropdownImage {
+  @apply h-5 w-5 transition-transform duration-200;
+}
+
+.rotate {
+  @apply transform rotate-180;
+}
+
+.dropdown {
+  @apply absolute z-10 w-full mt-1 bg-white border border-gray-200 rounded-md shadow-lg overflow-y-auto max-h-60;
+}
+
+.checkboxItem {
+  @apply py-2 px-3 hover:bg-gray-50;
+}
+
+.checkboxLabel {
+  @apply flex items-center cursor-pointer;
+}
+
+.checkbox {
+  @apply mr-3 w-[18.5px] h-[18.5px] mb-[12px];
+  accent-color: #66b5b3;
+}
+
+.optionName {
+  @apply text-sm  mb-[12px];
+  color: var(--color-primary);
+}
+
+.select_arrow {
+  @apply absolute top-1/2 right-[14px] transform -translate-y-1/2 pointer-events-none;
+}
+
+.select_arrow_img {
+  @apply w-[16px] h-[16px];
+}

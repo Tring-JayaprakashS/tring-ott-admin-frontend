@@ -1,68 +1,25 @@
 import React, { useState } from 'react';
 import styles from './ClientDetails.module.scss';
 import TitleCard from '../../../components/TitleCard/TitleCard';
-import { FileHandling } from '../../../utlis/helpers/FileHandling';
-import { FileUploaderSize } from '../../../utlis/enums/fileUpload.enum';
-import FileUploader from '../../../components/FileUpload/FileUpload';
 import Input from '../../../components/adminInput/Input';
 import { IC_CALENDER } from '../../../utlis/images';
+import { durationOptions, countryOptions } from '../../../data/PlatformCard';
+import { useAddClient } from '../../../context/AddClientContext';
+import LogoSelect from '../../../components/LogoSelect/LogoSelect';
 
 const ClientDetails = () => {
-  const {
-    fileInput,
-
-    handleFileChange,
-    openFileSelector,
-
-    handleDragOver,
-    handleDrop,
-  } = FileHandling();
-
-  const [clientForm, setClientForm] = useState({
-    clientName: '',
-    email: '',
-    phoneNumber: '',
-    city: '',
-    state: '',
-    country: '',
-    contractStartDate: '',
-    contractDuration: '',
-    uatReleaseDate: '',
-    productionReleaseDate: '',
-    projectKeyword: '',
-    countryCode: '+1',
-  });
+  const { formData, updateFormData } = useAddClient();
 
   const handleInputChange = (
     e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>
   ) => {
     const { name, value } = e.target;
-    setClientForm((prev) => ({
-      ...prev,
-      [name]: value,
-    }));
+    updateFormData({ [name]: value });
   };
 
   const handleCountryCodeChange = (code: string) => {
-    setClientForm((prev) => ({
-      ...prev,
-      countryCode: code,
-    }));
+    updateFormData({ countryCode: code });
   };
-
-  const durationOptions = [
-    { value: '3months', label: '3 Months' },
-    { value: '6months', label: '6 Months' },
-    { value: '1year', label: '1 Year' },
-    { value: '2years', label: '2 Years' },
-  ];
-
-  const countryOptions = [
-    { value: 'us', label: 'United States' },
-    { value: 'ca', label: 'Canada' },
-    { value: 'uk', label: 'United Kingdom' },
-    { value: 'au', label: 'Australia' },
-  ];
 
   return (
     <TitleCard title='Client details'>
@@ -73,17 +30,8 @@ const ClientDetails = () => {
           </p>
         </div>
         <div className={styles.client_details_mainwrap_section}>
-          <div className={styles.client_details_mainwrap_section_img}>
-            <FileUploader
-              fileInput={fileInput}
-              handleFileChange={handleFileChange}
-              handleDragOver={handleDragOver}
-              handleDrop={handleDrop}
-              openFileSelector={openFileSelector}
-              state={FileUploaderSize.SHOW_SIZE}
-              fileType='.png'
-            />
-          </div>
+          <LogoSelect title='' width='full' />
+          <div className={styles.section_border}></div>
           <div className={styles.client_details_mainwrap_section_form}>
             <div className={styles.form_row}>
               <Input
@@ -91,7 +39,7 @@ const ClientDetails = () => {
                 type='text'
                 name='clientName'
                 placeholder='Enter client name'
-                value={clientForm.clientName}
+                value={formData.clientName}
                 containerStyles={styles.form_field}
                 onChange={handleInputChange}
               />
@@ -101,7 +49,7 @@ const ClientDetails = () => {
                 type='email'
                 name='email'
                 placeholder='Enter email'
-                value={clientForm.email}
+                value={formData.email}
                 containerStyles={styles.form_field}
                 onChange={handleInputChange}
               />
@@ -111,9 +59,9 @@ const ClientDetails = () => {
                 type='phone'
                 name='phoneNumber'
                 placeholder='(000) 000-0000'
-                value={clientForm.phoneNumber}
+                value={formData.phoneNumber}
                 containerStyles={styles.form_field}
-                countryCode={clientForm.countryCode}
+                countryCode={formData.countryCode}
                 onChange={handleInputChange}
                 onCountryCodeChange={handleCountryCodeChange}
               />
@@ -125,7 +73,7 @@ const ClientDetails = () => {
                 type='select'
                 name='city'
                 placeholder='-Select-'
-                value={clientForm.city}
+                value={formData.city}
                 onChange={handleInputChange}
                 options={[
                   { value: 'ny', label: 'New York' },
@@ -140,7 +88,7 @@ const ClientDetails = () => {
                 type='select'
                 name='state'
                 placeholder='-Select-'
-                value={clientForm.state}
+                value={formData.state}
                 onChange={handleInputChange}
                 options={[
                   { value: 'tn', label: 'Tamil Nadu' },
@@ -155,7 +103,7 @@ const ClientDetails = () => {
                 type='select'
                 name='country'
                 placeholder='-Select-'
-                value={clientForm.country}
+                value={formData.country}
                 onChange={handleInputChange}
                 options={countryOptions}
                 containerStyles={styles.form_field}
@@ -169,7 +117,7 @@ const ClientDetails = () => {
                 name='contractStartDate'
                 placeholder='MM/DD/YYYY'
                 iconUrl={IC_CALENDER}
-                value={clientForm.contractStartDate}
+                value={formData.contractStartDate}
                 onChange={handleInputChange}
                 containerStyles={styles.form_field}
               />
@@ -179,7 +127,7 @@ const ClientDetails = () => {
                 type='select'
                 name='contractDuration'
                 placeholder='-Select-'
-                value={clientForm.contractDuration}
+                value={formData.contractDuration}
                 onChange={handleInputChange}
                 options={durationOptions}
                 containerStyles={styles.form_field}
@@ -191,7 +139,7 @@ const ClientDetails = () => {
                 name='uatReleaseDate'
                 placeholder='MM/DD/YYYY'
                 iconUrl={IC_CALENDER}
-                value={clientForm.uatReleaseDate}
+                value={formData.uatReleaseDate}
                 onChange={handleInputChange}
                 containerStyles={styles.form_field}
               />
@@ -202,9 +150,9 @@ const ClientDetails = () => {
                 <Input
                   label='Production Release Date'
                   type='date'
-                  name='productionReleaseDate'
+                  name='productionKeyword'
                   placeholder='MM/DD/YYYY'
-                  value={clientForm.productionReleaseDate}
+                  value={formData.productionKeyword}
                   onChange={handleInputChange}
                   containerStyles={styles.form_field}
                 />
@@ -215,7 +163,7 @@ const ClientDetails = () => {
                   type='text'
                   name='projectKeyword'
                   placeholder='Add project keyword'
-                  value={clientForm.projectKeyword}
+                  value={formData.projectKeyword}
                   onChange={handleInputChange}
                   containerStyles={styles.form_field}
                 />

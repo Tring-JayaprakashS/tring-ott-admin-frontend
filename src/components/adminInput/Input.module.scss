@@ -3,8 +3,8 @@
 }
 
 .input_label {
-  @apply text-[13px] font-normal mb-[6px] block;
-  color: #2c2c2c99;
+  @apply text-[13px] font-normal mb-[6px] block opacity-60;
+  color: var(--color-primary);
 }
 
 .input_wrapper {
@@ -13,7 +13,7 @@
 
 .input_field {
   @apply px-[14px] text-[14px] rounded-[6px] outline-none border-[1.2px] w-full h-[44px];
-  color: #2c2c2c;
+  color: var(--color-primary);
   @apply placeholder:text-[14px];
   &::placeholder {
     color: var(--color-input-placeholder);
@@ -24,8 +24,8 @@
 }
 
 .icon {
-  @apply text-[18px] opacity-50;
-  color: #2c2c2c66;
+  @apply text-[18px] opacity-40;
+  color: var(--color-primary);
 }
 
 .select_wrapper {
@@ -33,8 +33,9 @@
 }
 
 .select_field {
-  @apply appearance-none w-full h-full px-[12px] pr-[40px] rounded-[6px] text-[#2C2C2C] bg-[#FFFFFF] border border-[#2C2C2C1A] cursor-pointer;
-
+  @apply appearance-none w-full h-full px-[12px] pr-[40px] rounded-[6px]  bg-[#FFFFFF] border  cursor-pointer;
+  border-color: var(--border-color);
+  color: var(--color-primary);
   &::placeholder {
     color: var(--color-input-placeholder);
   }
@@ -71,16 +72,18 @@
 }
 
 .country_code {
-  @apply h-[44px] min-w-[100px] flex items-center justify-center border-r-[1px] border-[1.2px] border-[#2A395026] rounded-l-[6px] rounded-r-[6px] me-2 relative;
+  @apply h-[44px] min-w-[100px] flex items-center justify-center border-r-[1px] border-[1.2px]  rounded-l-[6px] rounded-r-[6px] me-2 relative;
+  border-color: var(--input-border-color);
 }
 
 .code_select {
   @apply h-full outline-none bg-transparent pl-3 pr-2 appearance-none cursor-pointer;
-  color: #2c2c2c;
+  color: var(--color-primary);
 }
 
 .phone_field {
-  @apply h-full border-r-[1px] border-[1.2px] border-[#2A395026] rounded-l-[6px] rounded-r-[6px];
+  @apply h-full border-r-[1px] border-[1.2px]  rounded-l-[6px] rounded-r-[6px];
+  border-color: var(--input-border-color);
 
   &.with_code {
     @apply rounded-l-[6px] rounded-r-[6px] border-l-[1px];
@@ -89,12 +92,12 @@
 
 .input_icon {
   @apply absolute right-[14px] flex items-center justify-center;
-  color: #2c2c2c66;
+  color: var(--placeholder-text-color);
   opacity: 0.5;
 }
 
 .dropdown_placeholder {
-  color: #2c2c2c;
+  color: var(--color-primary);
 }
 
 .select_arrow_phone {
@@ -103,5 +106,9 @@
 
 .select_arrow_phone_img {
   @apply w-[12px] h-[10px];
+  color: var(--color-primary);
+}
+
+.select_option {
   color: var(--color-primary);
 }

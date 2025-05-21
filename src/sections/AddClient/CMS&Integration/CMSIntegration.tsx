@@ -2,34 +2,21 @@ import React, { useState } from 'react';
 import styles from './CMSIntegration.module.scss';
 import TitleCard from '../../../components/TitleCard/TitleCard';
 import Input from '../../../components/adminInput/Input';
+import {
+  AuthenticationProvideroptions,
+  mediaPlayeroptions,
+} from '../../../data/PlatformCard';
+import { useAddClient } from '../../../context/AddClientContext';
 
 const CMSIntegration = () => {
-  const [clientForm, setClientForm] = useState({
-    mediaProvider: '',
-    authenticationProvider: '',
-  });
+  const { formData, updateFormData } = useAddClient();
 
   const handleInputChange = (
     e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>
   ) => {
     const { name, value } = e.target;
-    setClientForm((prev) => ({
-      ...prev,
-      [name]: value,
-    }));
+    updateFormData({ [name]: value });
   };
-
-  const AuthenticationProvideroptions = [
-    { value: 'Cn', label: 'Cognito' },
-    { value: 'Ip', label: 'In Player' },
-    { value: 'CB', label: 'Custom Backend' },
-  ];
-
-  const mediaPlayeroptions = [
-    { value: 'wh', label: 'Whatsapp' },
-    { value: 'fa', label: 'FaceBook' },
-    { value: 'Ne', label: 'Netflix' },
-  ];
 
   return (
     <TitleCard title='CMS & Integration'>
@@ -47,7 +34,7 @@ const CMSIntegration = () => {
             type='select'
             name='mediaProvider'
             placeholder='-Select-'
-            value={clientForm.mediaProvider}
+            value={formData.mediaProvider}
             onChange={handleInputChange}
             options={mediaPlayeroptions}
             containerStyles={styles.form_field}
@@ -61,7 +48,7 @@ const CMSIntegration = () => {
             type='select'
             name='authenticationProvider'
             placeholder='-Select-'
-            value={clientForm.authenticationProvider}
+            value={formData.authenticationProvider}
             onChange={handleInputChange}
             options={AuthenticationProvideroptions}
             containerStyles={styles.form_field}

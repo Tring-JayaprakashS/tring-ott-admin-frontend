@@ -62,6 +62,7 @@ const Input: React.FC<InputProps> = ({
   height,
 }) => {
   const calenderinput = useRef<HTMLInputElement>(null);
+
   const handleIconClick = () => {
     if (calenderinput.current) {
       calenderinput.current.focus();
@@ -74,6 +75,7 @@ const Input: React.FC<InputProps> = ({
     }
   };
   const [showPassword, setShowPassword] = useState<boolean>(false);
+
   const tooglepassword = (): void => {
     setShowPassword(!showPassword);
   };
@@ -101,11 +103,17 @@ const Input: React.FC<InputProps> = ({
               onChange={onChange}
               className={`${inputClass} ${Styles.select_field}`}
               style={value ? {} : { color: '#2C2C2C66' }}>
-              <option value='' disabled>
-                {placeholder}
-              </option>
+              {!value && (
+                <option value='' hidden>
+                  {placeholder}
+                </option>
+              )}
+
               {options.map((option) => (
-                <option key={option.value} value={option.value}>
+                <option
+                  key={option.value}
+                  value={option.value}
+                  className={Styles.select_option}>
                   {option.label}
                 </option>
               ))}

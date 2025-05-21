@@ -1,5 +1,4 @@
 import styles from './MenuList.module.scss';
-import Breadcrumb from '../../components/Breadcrumb/Breadcrumb';
 import ClientDetails from '../../sections/AddClient/ClientDetails/ClientDetails';
 import SelectPlatform from '../../sections/AddClient/SelectPlatform/SelectPlatform';
 import CMSIntegration from '../../sections/AddClient/CMS&Integration/CMSIntegration';
@@ -10,15 +9,37 @@ import {
   BottomBarPosition,
   BottomBarState,
 } from '../../utlis/enums/bottomBar.enum';
+import {
+  AddClientProvider,
+  useAddClient,
+} from '../../context/AddClientContext';
+import { useState } from 'react';
+import MenuTitle from '../../components/MenuTitle/MenuTitle';
+import { ShowAddButton } from '../../utlis/enums/fileUpload.enum';
+import { IC_EDIT_DETAILS } from '../../utlis/images';
 
-const MenuList = () => {
+const MenuListContent = () => {
+  const { saveToFirebase, isSaving } = useAddClient();
+  const [isEdit, setIsEdit] = useState(false);
+  const [isGenerated, setIsGenerated] = useState(true);
+  const [lastSaved, setLastSaved] = useState('not yet');
+  const handleSave = async () => {
+    await saveToFirebase();
+    setLastSaved(new Date().toLocaleTimeString());
+    setIsEdit(true);
+    setIsGenerated(false);
+  };
   return (
     <div className={styles.appconfig_page}>
       <div className={styles.appconfig_page_head_wrap}>
-        <div className={styles.appconfig_page_main}>
-          <p className={styles.appconfig_page_main_title}>Add Client</p>
-          <Breadcrumb />
-        </div>
+        <MenuTitle
+          title='Add Client'
+          showButtonstate={
+            isEdit ? ShowAddButton.SHOW_BUTTON : ShowAddButton.HIDE_BUTTON
+          }
+          buttonContent='Edit Details'
+          buttonImage={IC_EDIT_DETAILS}
+        />
         <div className={styles.card_wrapper}>
           <ClientDetails />
           <SelectPlatform />
@@ -28,13 +49,25 @@ const MenuList = () => {
         </div>
       </div>
       <BottomBar
-        onSave={() => {}}
+        onSave={handleSave}
         position={BottomBarPosition.STICKY}
-        state={BottomBarState.SHOW_ONLY_SAVE}
-        lastSavedText='not yet'
-        saveText='Generate'
+        state={
+          isGenerated
+            ? BottomBarState.SHOW_ONLY_SAVE
+            : BottomBarState.HIDE_BOTTOM_BAR
+        }
+        lastSavedText={lastSaved}
+        saveText={isSaving ? 'Generating...' : 'Generate'}
       />
     </div>
+  );
+};
+
+const MenuList = () => {
+  return (
+    <AddClientProvider>
+      <MenuListContent />
+    </AddClientProvider>
   );
 };
 

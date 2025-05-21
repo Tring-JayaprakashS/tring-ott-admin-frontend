@@ -13,7 +13,9 @@ export const FileHandling = () => {
 
   const MAX_FILE_SIZE = 2 * 1024 * 1024;
 
-  const handleFileChange = (event: ChangeEvent<HTMLInputElement>): void => {
+  const handleOriginalFileChange = (
+    event: ChangeEvent<HTMLInputElement>
+  ): void => {
     const file: any = event.target.files?.[0];
 
     if (!file) return;
@@ -74,7 +76,7 @@ export const FileHandling = () => {
     e.stopPropagation();
   };
 
-  const handleDrop = (e: React.DragEvent<HTMLDivElement>): void => {
+  const handleOriginalDrop = (e: React.DragEvent<HTMLDivElement>): void => {
     e.preventDefault();
 
     const file = e.dataTransfer.files?.[0];
@@ -100,12 +102,12 @@ export const FileHandling = () => {
     fileInput,
     setUploadURL,
     setUploadFile,
-    handleFileChange,
+    handleOriginalFileChange,
     handleURLUpload,
     openFileSelector,
     removeFile,
     getFileSize,
     handleDragOver,
-    handleDrop,
+    handleOriginalDrop,
   };
 };

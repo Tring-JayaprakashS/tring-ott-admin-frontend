@@ -2,20 +2,22 @@ import React, { useState } from 'react';
 import styles from './Language.module.scss';
 import TitleCard from '../../../components/TitleCard/TitleCard';
 import Input from '../../../components/adminInput/Input';
+import { CheckboxMultiSelectDropdown } from '../../../components/MultiSelectDropdown/MultiSelectDropdown';
+import { Languageoptions } from '../../../data/PlatformCard';
+import { useAddClient } from '../../../context/AddClientContext';
 
 const Language = () => {
-  const [clientForm, setClientForm] = useState({
-    InterfaceLanguage: '',
-    ChooseDefaultLanguage: '',
-  });
+  const { formData, updateFormData } = useAddClient();
+
   const handleInputChange = (
     e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>
   ) => {
     const { name, value } = e.target;
-    setClientForm((prev) => ({
-      ...prev,
-      [name]: value,
-    }));
+    updateFormData({ [name]: value });
+  };
+
+  const handleLanguageChange = (selectedLanguages: string[]) => {
+    updateFormData({ interfaceLanguages: selectedLanguages });
   };
   return (
     <TitleCard title='Language'>
@@ -28,31 +30,21 @@ const Language = () => {
 
       <div className={styles.section_language}>
         <div className={styles.select}>
-          <Input
+          <CheckboxMultiSelectDropdown
             label='Interface Language'
-            type='select'
-            name='InterfaceLanguage'
+            selected={formData.interfaceLanguages}
+            options={Languageoptions}
+            onChange={handleLanguageChange}
             placeholder='-Select-'
-            value={clientForm.InterfaceLanguage}
-            onChange={handleInputChange}
-            options={[
-              { value: 'En', label: 'English' },
-              { value: 'Ta', label: 'Tamil' },
-              { value: 'Hi', label: 'Hindi' },
-            ]}
-            containerStyles={styles.form_field}
-            inputStyles={styles.input_field}
-            width='360px'
-            height='44px'
           />
         </div>
         <div className={styles.select}>
           <Input
             label='Choose Default Language'
             type='select'
-            name='ChooseDefaultLanguage'
+            name='defaultLanguage'
             placeholder='-Select-'
-            value={clientForm.ChooseDefaultLanguage}
+            value={formData.defaultLanguage}
             onChange={handleInputChange}
             options={[
               { value: 'En', label: 'English' },
@@ -60,8 +52,6 @@ const Language = () => {
               { value: 'Hi', label: 'Hindi' },
             ]}
             containerStyles={styles.form_field}
-            width='360px'
-            height='44px'
           />
         </div>
       </div>

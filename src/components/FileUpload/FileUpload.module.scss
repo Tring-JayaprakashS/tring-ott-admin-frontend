@@ -17,19 +17,19 @@
 }
 
 .fileuploader_text {
-  @apply font-normal text-sm;
-  color: var(--color-primary-opacity-40);
+  @apply font-normal text-[12px];
+  color: var(--placeholder-text-color);
   text-align: center;
 }
 .fileuploader_drop {
-  @apply text-xs;
+  @apply text-[12px];
 }
 
 .fileuploader_highlight {
   @apply underline;
-  color: var(--color-success);
+  color: var(--checkbox-accent);
 }
 
 .fileuploader_filetypes {
-  @apply text-center italic text-xs mb-1;
+  @apply text-center italic text-[12px] mb-1 mt-1;
 }
