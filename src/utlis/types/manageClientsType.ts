@@ -1,3 +1,5 @@
+import { string } from 'zod';
+
 export type Option = {
   id: string;
   name: string;
@@ -34,7 +36,7 @@ export type PlatformCardProps = {
     label: 'Active' | 'Inactive' | string;
     value: boolean;
   };
-  platforms: string[];
+  platforms: platformsOption[];
   memberSince: string;
   nextBilling: string;
   onDropdownToggle: () => void;
@@ -59,6 +61,12 @@ export type ClientFilterFormData = {
   billingDateTo: string;
 };
 
+export type platformsOption = {
+  id: string;
+  image: string;
+  alt: string;
+};
+
 export type ManageClientsData = {
   name: string;
   logo: string;
@@ -66,7 +74,7 @@ export type ManageClientsData = {
   status: { label: 'Active' | 'Deactivated' | string; value: boolean };
   memberSince: string;
   nextBilling: string;
-  platforms: string[];
+  platforms: platformsOption[];
 };
 
 export type DeletePopupProps = {

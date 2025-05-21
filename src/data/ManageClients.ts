@@ -1,11 +1,7 @@
 import {
   IC_ANDRIOD_TV,
-  IC_SAMSUNG_TV,
   IC_LG_TV,
   IC_VIZIO_TV,
-  IC_WEBSITE,
-  IC_IOS,
-  IC_ANDRIOD,
   IMG_VIVA_LOGO,
   IC_APPLE_TV,
   IC_ROKU_TV,
@@ -18,8 +14,16 @@ import {
   IC_CIRCLE_ICON,
   IC_DELETE_ICON,
   IC_PREVIEW_ICON,
+  IC_SAMSUNG,
+  IC_WEB,
+  IC_APPLE_WEB,
+  IC_ANDROID_WEB,
 } from '../utlis/images';
-import { LinkItem, ManageClientsData } from '../utlis/types/manageClientsType';
+import {
+  LinkItem,
+  ManageClientsData,
+  platformsOption,
+} from '../utlis/types/manageClientsType';
 
 const Clients: ManageClientsData[] = [
   {
@@ -27,18 +31,44 @@ const Clients: ManageClientsData[] = [
     logo: IMG_VIVA_LOGO,
     premium: true,
     status: { label: 'Active', value: true },
-    memberSince: '06/21/2022',
-    nextBilling: '06/21/2022',
+    memberSince: '01/15/2020',
+    nextBilling: '01/15/2024',
     platforms: [
-      IC_APPLE_TV,
-      IC_ROKU_TV,
-      IC_ANDRIOD_TV,
-      IC_SAMSUNG_TV,
-      IC_LG_TV,
-      IC_VIZIO_TV,
-      IC_WEBSITE,
-      IC_IOS,
-      IC_ANDRIOD,
+      {
+        id: 'android_tv',
+        image: IC_ANDRIOD_TV,
+        alt: 'Android TV logo',
+      },
+      {
+        id: 'samsung',
+        image: IC_SAMSUNG,
+        alt: 'Samsung logo',
+      },
+      {
+        id: 'lg_tv',
+        image: IC_LG_TV,
+        alt: 'LG TV logo',
+      },
+      {
+        id: 'vizio_tv',
+        image: IC_VIZIO_TV,
+        alt: 'Vizio TV logo',
+      },
+      {
+        id: 'web',
+        image: IC_WEB,
+        alt: 'Web logo',
+      },
+      {
+        id: 'apple_web',
+        image: IC_APPLE_WEB,
+        alt: 'Apple Web logo',
+      },
+      {
+        id: 'android_web',
+        image: IC_ANDROID_WEB,
+        alt: 'Android Web logo',
+      },
     ],
   },
   {
@@ -47,17 +77,43 @@ const Clients: ManageClientsData[] = [
     premium: true,
     status: { label: 'Active', value: true },
     memberSince: '06/21/2022',
-    nextBilling: '06/21/2022',
+    nextBilling: '06/21/2024',
     platforms: [
-      IC_APPLE_TV,
-      IC_ROKU_TV,
-      IC_ANDRIOD_TV,
-      IC_SAMSUNG_TV,
-      IC_LG_TV,
-      IC_VIZIO_TV,
-      IC_WEBSITE,
-      IC_IOS,
-      IC_ANDRIOD,
+      {
+        id: 'apple_tv',
+        image: IC_APPLE_TV,
+        alt: 'Apple TV logo',
+      },
+      {
+        id: 'roku_tv',
+        image: IC_ROKU_TV,
+        alt: 'Roku TV logo',
+      },
+      {
+        id: 'lg_tv',
+        image: IC_LG_TV,
+        alt: 'LG TV logo',
+      },
+      {
+        id: 'vizio_tv',
+        image: IC_VIZIO_TV,
+        alt: 'Vizio TV logo',
+      },
+      {
+        id: 'web',
+        image: IC_WEB,
+        alt: 'Web logo',
+      },
+      {
+        id: 'apple_web',
+        image: IC_APPLE_WEB,
+        alt: 'Apple Web logo',
+      },
+      {
+        id: 'android_web',
+        image: IC_ANDROID_WEB,
+        alt: 'Android Web logo',
+      },
     ],
   },
   {
@@ -65,18 +121,44 @@ const Clients: ManageClientsData[] = [
     logo: IMG_MINNO_LOGO,
     premium: false,
     status: { label: 'Active', value: true },
-    memberSince: '06/21/2022',
-    nextBilling: '06/21/2022',
+    memberSince: '11/03/2023',
+    nextBilling: '11/03/2024',
     platforms: [
-      IC_APPLE_TV,
-      IC_ROKU_TV,
-      IC_ANDRIOD_TV,
-      IC_SAMSUNG_TV,
-      IC_LG_TV,
-      IC_VIZIO_TV,
-      IC_WEBSITE,
-      IC_IOS,
-      IC_ANDRIOD,
+      {
+        id: 'apple_tv',
+        image: IC_APPLE_TV,
+        alt: 'Apple TV logo',
+      },
+      {
+        id: 'roku_tv',
+        image: IC_ROKU_TV,
+        alt: 'Roku TV logo',
+      },
+      {
+        id: 'android_tv',
+        image: IC_ANDRIOD_TV,
+        alt: 'Android TV logo',
+      },
+      {
+        id: 'samsung',
+        image: IC_SAMSUNG,
+        alt: 'Samsung logo',
+      },
+      {
+        id: 'web',
+        image: IC_WEB,
+        alt: 'Web logo',
+      },
+      {
+        id: 'apple_web',
+        image: IC_APPLE_WEB,
+        alt: 'Apple Web logo',
+      },
+      {
+        id: 'android_web',
+        image: IC_ANDROID_WEB,
+        alt: 'Android Web logo',
+      },
     ],
   },
   {
@@ -84,18 +166,44 @@ const Clients: ManageClientsData[] = [
     logo: IMG_CHECK_LOGO,
     premium: true,
     status: { label: 'Deactivated', value: false },
-    memberSince: '06/21/2022',
-    nextBilling: '06/21/2022',
+    memberSince: '02/10/2024',
+    nextBilling: '07/10/2024',
     platforms: [
-      IC_APPLE_TV,
-      IC_ROKU_TV,
-      IC_ANDRIOD_TV,
-      IC_SAMSUNG_TV,
-      IC_LG_TV,
-      IC_VIZIO_TV,
-      IC_WEBSITE,
-      IC_IOS,
-      IC_ANDRIOD,
+      {
+        id: 'apple_tv',
+        image: IC_APPLE_TV,
+        alt: 'Apple TV logo',
+      },
+      {
+        id: 'roku_tv',
+        image: IC_ROKU_TV,
+        alt: 'Roku TV logo',
+      },
+      {
+        id: 'android_tv',
+        image: IC_ANDRIOD_TV,
+        alt: 'Android TV logo',
+      },
+      {
+        id: 'samsung',
+        image: IC_SAMSUNG,
+        alt: 'Samsung logo',
+      },
+      {
+        id: 'lg_tv',
+        image: IC_LG_TV,
+        alt: 'LG TV logo',
+      },
+      {
+        id: 'vizio_tv',
+        image: IC_VIZIO_TV,
+        alt: 'Vizio TV logo',
+      },
+      {
+        id: 'android_web',
+        image: IC_ANDROID_WEB,
+        alt: 'Android Web logo',
+      },
     ],
   },
   {
@@ -103,18 +211,44 @@ const Clients: ManageClientsData[] = [
     logo: IMG_ESTANTE_LOGO,
     premium: false,
     status: { label: 'Active', value: true },
-    memberSince: '06/21/2022',
-    nextBilling: '06/21/2022',
+    memberSince: '05/01/2021',
+    nextBilling: '05/01/2025',
     platforms: [
-      IC_APPLE_TV,
-      IC_ROKU_TV,
-      IC_ANDRIOD_TV,
-      IC_SAMSUNG_TV,
-      IC_LG_TV,
-      IC_VIZIO_TV,
-      IC_WEBSITE,
-      IC_IOS,
-      IC_ANDRIOD,
+      {
+        id: 'apple_tv',
+        image: IC_APPLE_TV,
+        alt: 'Apple TV logo',
+      },
+      {
+        id: 'roku_tv',
+        image: IC_ROKU_TV,
+        alt: 'Roku TV logo',
+      },
+      {
+        id: 'android_tv',
+        image: IC_ANDRIOD_TV,
+        alt: 'Android TV logo',
+      },
+      {
+        id: 'samsung',
+        image: IC_SAMSUNG,
+        alt: 'Samsung logo',
+      },
+      {
+        id: 'lg_tv',
+        image: IC_LG_TV,
+        alt: 'LG TV logo',
+      },
+      {
+        id: 'vizio_tv',
+        image: IC_VIZIO_TV,
+        alt: 'Vizio TV logo',
+      },
+      {
+        id: 'web',
+        image: IC_WEB,
+        alt: 'Web logo',
+      },
     ],
   },
   {
@@ -122,18 +256,44 @@ const Clients: ManageClientsData[] = [
     logo: IMG_KSL_LOGO,
     premium: true,
     status: { label: 'Deactivated', value: false },
-    memberSince: '06/21/2022',
-    nextBilling: '06/21/2022',
+    memberSince: '12/31/2022',
+    nextBilling: '12/31/2023',
     platforms: [
-      IC_APPLE_TV,
-      IC_ROKU_TV,
-      IC_ANDRIOD_TV,
-      IC_SAMSUNG_TV,
-      IC_LG_TV,
-      IC_VIZIO_TV,
-      IC_WEBSITE,
-      IC_IOS,
-      IC_ANDRIOD,
+      {
+        id: 'apple_tv',
+        image: IC_APPLE_TV,
+        alt: 'Apple TV logo',
+      },
+      {
+        id: 'roku_tv',
+        image: IC_ROKU_TV,
+        alt: 'Roku TV logo',
+      },
+      {
+        id: 'android_tv',
+        image: IC_ANDRIOD_TV,
+        alt: 'Android TV logo',
+      },
+      {
+        id: 'samsung',
+        image: IC_SAMSUNG,
+        alt: 'Samsung logo',
+      },
+      {
+        id: 'lg_tv',
+        image: IC_LG_TV,
+        alt: 'LG TV logo',
+      },
+      {
+        id: 'apple_web',
+        image: IC_APPLE_WEB,
+        alt: 'Apple Web logo',
+      },
+      {
+        id: 'android_web',
+        image: IC_ANDROID_WEB,
+        alt: 'Android Web logo',
+      },
     ],
   },
 ];
@@ -165,4 +325,52 @@ export const linkItems: LinkItem[] = [
     url: 'https://mobile.com',
   },
   { id: 3, label: 'Tv', icon: IC_PREVIEW_ICON, url: 'https://tv.com' },
+];
+
+export const filterPlatfrom: platformsOption[] = [
+  {
+    id: 'apple_tv',
+    image: IC_APPLE_TV,
+    alt: 'Apple TV logo',
+  },
+  {
+    id: 'roku_tv',
+    image: IC_ROKU_TV,
+    alt: 'Roku TV logo',
+  },
+  {
+    id: 'android_tv',
+    image: IC_ANDRIOD_TV,
+    alt: 'Android TV logo',
+  },
+  {
+    id: 'samsung',
+    image: IC_SAMSUNG,
+    alt: 'Samsung logo',
+  },
+  {
+    id: 'lg_tv',
+    image: IC_LG_TV,
+    alt: 'LG TV logo',
+  },
+  {
+    id: 'vizio_tv',
+    image: IC_VIZIO_TV,
+    alt: 'Vizio TV logo',
+  },
+  {
+    id: 'web',
+    image: IC_WEB,
+    alt: 'Web logo',
+  },
+  {
+    id: 'apple_web',
+    image: IC_APPLE_WEB,
+    alt: 'Apple Web logo',
+  },
+  {
+    id: 'android_web',
+    image: IC_ANDROID_WEB,
+    alt: 'Android Web logo',
+  },
 ];
