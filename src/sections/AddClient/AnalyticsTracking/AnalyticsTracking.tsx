@@ -3,6 +3,7 @@ import styles from './AnalyticsTracking.module.scss';
 import TitleCard from '../../../components/TitleCard/TitleCard';
 import PlatformCard from '../../../components/platformCard/PlatformCard';
 import { ANALYTICS_TRACKING } from '../../../data/PlatformCard';
+import { PlatformCardVariant } from '../../../utlis/enums/platformCard.enum';
 
 const AnalyticsTracking = () => {
   const [selectedPlatforms, setSelectedPlatforms] = useState<string[]>([]);
@@ -27,6 +28,7 @@ const AnalyticsTracking = () => {
         {ANALYTICS_TRACKING.map((platform) => (
           <div key={platform.id}>
             <PlatformCard
+              variant={PlatformCardVariant.MEDIUM}
               isImage={false}
               text={platform.text}
               platformId={platform.id}

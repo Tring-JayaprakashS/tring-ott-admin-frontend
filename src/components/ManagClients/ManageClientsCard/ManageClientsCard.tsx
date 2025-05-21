@@ -1,5 +1,7 @@
+import { PlatformCardVariant } from '../../../utlis/enums/platformCard.enum';
 import { IC_CROWN_ICON, IC_THREE_DOT } from '../../../utlis/images';
 import { PlatformCardProps } from '../../../utlis/types/manageClientsType';
+import PlatformCard from '../../platformCard/PlatformCard';
 import styles from './ManageClientsCard.module.scss';
 
 export default function ManageClientsCard({
@@ -55,10 +57,16 @@ export default function ManageClientsCard({
           </div>
         </div>
 
-        <div className={styles.platforms}>
-          {platforms.map((icon, index) => (
-            <div key={index} className={styles.platform_wrap}>
-              <img key={index} src={icon} alt={`platform-${index}`} />
+        <div className={styles.platform}>
+          {platforms.map((platform) => (
+            <div key={platform.id}>
+              <PlatformCard
+                variant={PlatformCardVariant.SMALL}
+                platformId={platform.id}
+                isImage={true}
+                imagesrc={platform.image}
+                imageAlt={platform.alt}
+              />
             </div>
           ))}
         </div>

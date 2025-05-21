@@ -41,7 +41,7 @@ const Router = () => {
           <Route path='manage-clients/add-clients' element={<MenuList />} />
 
           <Route path='subscriptions' element={<Subscriptions />} />
-          <Route path='clien-list' element={<ClientList />} />
+          <Route path='client-list' element={<ClientList />} />
           <Route path='audit-logs' element={<AuditLogs />} />
           <Route path='help&support' element={<HelpSupport />} />
           <Route path='settings' element={<Setting />} />

@@ -4,12 +4,6 @@ import styles from './FormPopup.module.scss';
 import Button from '../../Button/Button';
 import { PopupProps } from '../../../utlis/types/formPopup';
 
-export const accessOptions = [
-  { id: 'full_access', name: 'Full Access' },
-  { id: 'content_management', name: 'Content Management' },
-  { id: 'read_only', name: 'Read Only' },
-];
-
 const FormPopup = ({
   title,
   isVisible,
@@ -17,6 +11,7 @@ const FormPopup = ({
   children,
   formData,
   save,
+  discard,
 }: PopupProps) => {
   const addUser = (e: React.FormEvent) => {
     e.preventDefault();
@@ -25,19 +20,26 @@ const FormPopup = ({
   };
 
   const clearFormData = () => {
-    onClose();
+    discard();
   };
 
   if (!isVisible) return null;
 
+  const isFormEmpty = () => {
+    return Object.entries(formData).every(([key, value]) => {
+      if (Array.isArray(value)) return value.length === 0;
+      return value === '';
+    });
+  };
+
   return (
-    <div className={styles.addUser_popup} onClick={clearFormData}>
+    <div className={styles.addUser_popup} onClick={onClose}>
       <div
         className={styles.addUser_popup_content}
         onClick={(e) => e.stopPropagation()}>
         <div className={styles.addUser_popup_header}>
           <h3 className={styles.addUser_popup_title}>{title}</h3>
-          <div onClick={clearFormData} className={styles.addUser_popup_close}>
+          <div onClick={onClose} className={styles.addUser_popup_close}>
             <img
               src={IC_CLOSE}
               alt='Close'
@@ -57,11 +59,7 @@ const FormPopup = ({
               Discard
             </Button>
             <div>
-              {Object.values(formData).every(
-                (value) =>
-                  (Array.isArray(value) && value.length === 0) ||
-                  (!Array.isArray(value) && value === '')
-              ) ? (
+              {isFormEmpty() ? (
                 <Button
                   type='button'
                   variant='disable'

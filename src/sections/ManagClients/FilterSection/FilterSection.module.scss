@@ -1,0 +1,30 @@
+.platform_wraper {
+  @apply flex flex-col gap-2;
+}
+
+.platform_title {
+  @apply text-[13px] font-normal;
+  color: var(--color-primary);
+}
+
+.platform_card {
+  @apply flex flex-wrap gap-2 w-[452px] h-auto;
+}
+
+.underline {
+  @apply mt-[24px] border border-dashed;
+  color: var(--subtitle-content);
+}
+
+.date_wrapper {
+  @apply flex flex-col mt-[24px];
+}
+
+.date_title {
+  @apply text-[14px] font-normal;
+  color: var(--color-primary);
+}
+
+.date_card {
+  @apply flex mt-2 gap-3;
+}
