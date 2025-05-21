@@ -33,7 +33,6 @@ const ManageClients = () => {
   });
 
   const navigator = useNavigate();
-
   const handleDropdownToggle = (index: number) => {
     setActiveDropdownIndex((prevIndex) => (prevIndex === index ? null : index));
   };
@@ -110,9 +109,12 @@ const ManageClients = () => {
 
       if (
         platforms.length > 0 &&
-        !platforms.some((p) => client.platforms.includes(p))
-      )
+        !platforms.some((selectedId) =>
+          client.platforms.some((p) => p.id === selectedId)
+        )
+      ) {
         return false;
+      }
 
       if (
         memberSinceFrom &&
@@ -127,12 +129,13 @@ const ManageClients = () => {
 
       if (
         billingDateFrom &&
-        new Date(client.memberSince) < new Date(billingDateFrom)
-      )
+        new Date(client.nextBilling) < new Date(billingDateFrom)
+      ) {
         return false;
+      }
       if (
         billingDateTo &&
-        new Date(client.memberSince) > new Date(billingDateTo)
+        new Date(client.nextBilling) > new Date(billingDateTo)
       )
         return false;
 

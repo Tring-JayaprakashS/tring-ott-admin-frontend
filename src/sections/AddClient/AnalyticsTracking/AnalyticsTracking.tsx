@@ -4,6 +4,7 @@ import TitleCard from '../../../components/TitleCard/TitleCard';
 import PlatformCard from '../../../components/platformCard/PlatformCard';
 import { ANALYTICS_TRACKING } from '../../../data/PlatformCard';
 import { useAddClient } from '../../../context/AddClientContext';
+import { PlatformCardVariant } from '../../../utlis/enums/platformCard.enum';
 
 const AnalyticsTracking = () => {
   const { formData, updateFormData } = useAddClient();
@@ -35,6 +36,7 @@ const AnalyticsTracking = () => {
         {ANALYTICS_TRACKING.map((platform) => (
           <div key={platform.id}>
             <PlatformCard
+              variant={PlatformCardVariant.MEDIUM}
               isImage={false}
               text={platform.text}
               platformId={platform.id}

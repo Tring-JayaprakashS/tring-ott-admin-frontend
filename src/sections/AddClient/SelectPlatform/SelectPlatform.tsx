@@ -4,6 +4,7 @@ import TitleCard from '../../../components/TitleCard/TitleCard';
 import PlatformCard from '../../../components/platformCard/PlatformCard';
 import { TV_PLATFORMS, WEB_MOBILE_PLATFORMS } from '../../../data/PlatformCard';
 import { useAddClient } from '../../../context/AddClientContext';
+import { PlatformCardVariant } from '../../../utlis/enums/platformCard.enum';
 
 const SelectPlatform: React.FC = () => {
   const { formData, updateFormData } = useAddClient();
@@ -35,13 +36,10 @@ const SelectPlatform: React.FC = () => {
             {TV_PLATFORMS.map((platform) => (
               <div key={platform.id}>
                 <PlatformCard
+                  variant={PlatformCardVariant.MEDIUM}
                   isImage={true}
                   imagesrc={platform.image}
                   imageAlt={platform.alt}
-                  width={platform.width}
-                  height={platform.height}
-                  imgwidth={platform.imgWidth}
-                  imgheight={platform.imgHeight}
                   onClick={handleSelect}
                   platformId={platform.id}
                   isSelected={isSelected(platform.id)}
@@ -56,13 +54,10 @@ const SelectPlatform: React.FC = () => {
             {WEB_MOBILE_PLATFORMS.map((platform) => (
               <div key={platform.id}>
                 <PlatformCard
+                  variant={PlatformCardVariant.MEDIUM}
                   isImage={true}
                   imagesrc={platform.image}
                   imageAlt={platform.alt}
-                  width={platform.width}
-                  height={platform.height}
-                  imgwidth={platform.imgWidth}
-                  imgheight={platform.imgHeight}
                   onClick={handleSelect}
                   platformId={platform.id}
                   isSelected={isSelected(platform.id)}

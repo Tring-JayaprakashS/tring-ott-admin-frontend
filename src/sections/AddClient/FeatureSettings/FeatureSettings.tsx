@@ -10,6 +10,7 @@ import {
 import AnalyticsTracking from '../AnalyticsTracking/AnalyticsTracking';
 import { CheckboxMultiSelectDropdown } from '../../../components/MultiSelectDropdown/MultiSelectDropdown';
 import { useAddClient } from '../../../context/AddClientContext';
+import { PlatformCardVariant } from '../../../utlis/enums/platformCard.enum';
 
 const FeatureSettings = () => {
   const { formData, updateFormData } = useAddClient();
@@ -60,6 +61,7 @@ const FeatureSettings = () => {
           {PRIMARY_STREAMING_FEATURE.map((platform) => (
             <div key={platform.id}>
               <PlatformCard
+                variant={PlatformCardVariant.MEDIUM}
                 isImage={false}
                 text={platform.text}
                 platformId={platform.id}

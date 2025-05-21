@@ -7,6 +7,7 @@ export type PopupProps = {
   title?: string;
   formData: ClientFilterFormData;
   save: (e: React.FormEvent) => void;
+  discard: () => void;
 };
 export type FilterSectionProps = {
   isVisible: boolean;

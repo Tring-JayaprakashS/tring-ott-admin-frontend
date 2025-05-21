@@ -1,5 +1,6 @@
-import React, { useState } from 'react';
+import React from 'react';
 import Styles from './PlatformCard.module.scss';
+import { PlatformCardVariant } from '../../utlis/enums/platformCard.enum';
 
 interface PlatformCardProps {
   isImage: boolean;
@@ -13,6 +14,7 @@ interface PlatformCardProps {
   onClick?: (platformId: string) => void;
   platformId: string;
   isSelected?: boolean;
+  variant: PlatformCardVariant;
 }
 
 const PlatformCard: React.FC<PlatformCardProps> = ({
@@ -27,6 +29,7 @@ const PlatformCard: React.FC<PlatformCardProps> = ({
   onClick,
   platformId,
   isSelected = false,
+  variant,
 }) => {
   const buttonStyle = {
     width: typeof width === 'number' ? `${width}px` : width,
@@ -51,9 +54,15 @@ const PlatformCard: React.FC<PlatformCardProps> = ({
     }
   };
 
+  const variantClass =
+    variant === PlatformCardVariant.SMALL ? Styles.small : Styles.medium;
+
+  const variantImg =
+    variant === PlatformCardVariant.MEDIUM ? Styles.medium_img : '';
+
   return (
     <button
-      className={`${Styles.button} ${isImage ? Styles.button_image : Styles.button_text}`}
+      className={`${Styles.button} ${variantClass} ${isImage ? Styles.button_image : Styles.button_text}`}
       style={buttonStyle}
       onClick={handleClick}
       type='button'>
@@ -62,7 +71,7 @@ const PlatformCard: React.FC<PlatformCardProps> = ({
           src={imagesrc}
           alt={imageAlt}
           style={imageStyle}
-          className={Styles.button_image_url}
+          className={`${Styles.button_image_url} ${variantImg}`}
         />
       ) : (
         <span className={Styles.button_text_name}>{text}</span>
