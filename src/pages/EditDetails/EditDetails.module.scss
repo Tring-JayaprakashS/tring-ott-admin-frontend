@@ -21,11 +21,31 @@
     color: var(--color-primary);
   }
 }
+
 .card_wrapper {
-  @apply mt-[20px] flex gap-[30px] min-h-screen flex-wrap max-w-full;
+  @apply flex flex-col gap-4;
 }
 
-.success_message {
-  @apply text-center mb-4;
-  color: red;
+.loading_container,
+.error_container {
+  @apply flex flex-col items-center justify-center min-h-[400px] text-center;
+
+  p {
+    @apply text-lg mb-4;
+    color: var(--color-primary);
+  }
+
+  button {
+    @apply px-6 py-2 bg-blue-500 text-white rounded-md hover:bg-blue-600 transition-colors;
+  }
+}
+
+.error_container {
+  p {
+    @apply text-red-600;
+  }
+
+  button {
+    @apply bg-gray-500 hover:bg-gray-600;
+  }
 }

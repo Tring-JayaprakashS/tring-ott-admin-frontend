@@ -1,4 +1,3 @@
-import { useState } from 'react';
 import styles from './AnalyticsTracking.module.scss';
 import TitleCard from '../../../components/TitleCard/TitleCard';
 import PlatformCard from '../../../components/platformCard/PlatformCard';
@@ -10,18 +9,18 @@ const AnalyticsTracking = () => {
   const { formData, updateFormData } = useAddClient();
 
   const handleStreamingSelect = (platformId: string) => {
-    const currentSelected = [...formData.primaryStreamingFeature];
+    const currentSelected = [...formData.analyticsTools];
     if (currentSelected.includes(platformId)) {
       const updated = currentSelected.filter((id) => id !== platformId);
-      updateFormData({ primaryStreamingFeature: updated });
+      updateFormData({ analyticsTools: updated });
     } else {
       updateFormData({
-        primaryStreamingFeature: [...currentSelected, platformId],
+        analyticsTools: [...currentSelected, platformId],
       });
     }
   };
   const isStreamingSelected = (platformId: string): boolean => {
-    return formData.primaryStreamingFeature.includes(platformId);
+    return formData.analyticsTools.includes(platformId);
   };
   const handleCheckboxSelect = (e: React.ChangeEvent<HTMLInputElement>) => {
     const { name, checked } = e.target;

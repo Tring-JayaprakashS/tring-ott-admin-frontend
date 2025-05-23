@@ -14,32 +14,48 @@ import {
   useAddClient,
 } from '../../context/AddClientContext';
 import { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import MenuTitle from '../../components/MenuTitle/MenuTitle';
 import { ShowAddButton } from '../../utlis/enums/fileUpload.enum';
 import { IC_EDIT_DETAILS } from '../../utlis/images';
 
 const MenuListContent = () => {
-  const { saveToFirebase, isSaving } = useAddClient();
-  const [isEdit, setIsEdit] = useState(false);
-  const [isGenerated, setIsGenerated] = useState(true);
+  const { saveToFirebase, isSaving, formData } = useAddClient();
+  const navigate = useNavigate();
+  const [message, setMessage] = useState('');
+
   const [lastSaved, setLastSaved] = useState('not yet');
   const handleSave = async () => {
-    await saveToFirebase();
-    setLastSaved(new Date().toLocaleTimeString());
-    setIsEdit(true);
-    setIsGenerated(false);
+    if (
+      !formData.clientName ||
+      !formData.contractStartDate ||
+      !formData.productionKeyword ||
+      !formData.selectedPlatforms.length
+    ) {
+      setMessage(
+        'Please fill in required fields (clientname , contractStartDate,productionKeyword,selectedPlatforms)'
+      );
+      return;
+    }
+    try {
+      const clientName = await saveToFirebase();
+      setLastSaved(new Date().toLocaleTimeString());
+
+      navigate(`/home/manage-clients/${clientName}`);
+    } catch (error) {
+      console.error('Error saving data:', error);
+    }
   };
   return (
     <div className={styles.appconfig_page}>
       <div className={styles.appconfig_page_head_wrap}>
         <MenuTitle
           title='Add Client'
-          showButtonstate={
-            isEdit ? ShowAddButton.SHOW_BUTTON : ShowAddButton.HIDE_BUTTON
-          }
+          showButtonstate={ShowAddButton.HIDE_BUTTON}
           buttonContent='Edit Details'
           buttonImage={IC_EDIT_DETAILS}
         />
+        {message && <p className={styles.success_message}>{message}</p>}
         <div className={styles.card_wrapper}>
           <ClientDetails />
           <SelectPlatform />
@@ -51,11 +67,7 @@ const MenuListContent = () => {
       <BottomBar
         onSave={handleSave}
         position={BottomBarPosition.STICKY}
-        state={
-          isGenerated
-            ? BottomBarState.SHOW_ONLY_SAVE
-            : BottomBarState.HIDE_BOTTOM_BAR
-        }
+        state={BottomBarState.SHOW_ONLY_SAVE}
         lastSavedText={lastSaved}
         saveText={isSaving ? 'Generating...' : 'Generate'}
       />
