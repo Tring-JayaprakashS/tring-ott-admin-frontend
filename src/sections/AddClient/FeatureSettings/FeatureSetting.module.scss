@@ -99,3 +99,38 @@
 .select {
   @apply w-[368px];
 }
+
+.checkboxLabel {
+  @apply ms-[6px] text-[13px] font-[400px];
+  color: var(--color-primary);
+}
+.checkboxContainer {
+  @apply flex items-center cursor-pointer;
+  position: relative;
+}
+
+.hiddenCheckbox {
+  @apply hidden;
+}
+
+.customCheckbox {
+  @apply w-[19.5px] h-[19.5px] rounded border border-gray-300;
+  background-color: white;
+  position: relative;
+}
+
+.hiddenCheckbox:checked + .customCheckbox {
+  background-color: var(--checkbox-accent);
+}
+
+.hiddenCheckbox:checked + .customCheckbox::after {
+  content: '';
+  position: absolute;
+  top: 3px;
+  left: 6px;
+  width: 5px;
+  height: 10px;
+  border: solid white;
+  border-width: 0 2px 2px 0;
+  transform: rotate(45deg);
+}

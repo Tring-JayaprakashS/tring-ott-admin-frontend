@@ -45,20 +45,18 @@ const AnalyticsTracking = () => {
           </div>
         ))}
       </div>
-      <div className={styles.checkbox}>
-        <div className={styles.checkbox_image}>
-          <input
-            type='checkbox'
-            checked={formData.playerAnalytics}
-            onChange={(e) => handleCheckboxSelect(e)}
-            name='playerAnalytics'
-            className={styles.checkbox_input}
-          />
-        </div>
-        <div className={styles.checkbox_label}>
-          <p>Player analytics</p>
-        </div>
-      </div>
+
+      <label className={styles.checkboxContainer}>
+        <input
+          type='checkbox'
+          checked={formData.playerAnalytics}
+          onChange={handleCheckboxSelect}
+          name='playerAnalytics'
+          className={styles.hiddenCheckbox}
+        />
+        <span className={styles.customCheckbox}></span>
+        <span className={styles.checkboxLabel}>Player Analytics</span>
+      </label>
     </TitleCard>
   );
 };

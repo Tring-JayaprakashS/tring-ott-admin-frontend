@@ -1,0 +1,29 @@
+.date_wrapper {
+  @apply border border-[#2C2C2C1A] w-[277.33px] h-[44px] relative flex items-center rounded-[8px];
+  @apply placeholder:ml-2;
+  &:focus,
+  &:focus-visible {
+    outline: none;
+    box-shadow: none;
+  }
+}
+.input_field {
+  @apply text-[14px] font-normal ps-[10px];
+  &::placeholder {
+    @apply text-[14px] font-normal ps-[10px];
+    color: #2c2c2c66;
+  }
+}
+
+.date_field {
+  @apply cursor-pointer;
+  &:focus,
+  &:focus-visible {
+    outline: none;
+    box-shadow: none;
+  }
+}
+
+.date_icon {
+  @apply absolute right-[14px] flex items-center justify-center pointer-events-none;
+}

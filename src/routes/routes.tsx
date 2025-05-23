@@ -41,10 +41,10 @@ const Router = () => {
           <Route path='manage-clients' element={<ManageClients />} />
           <Route path='manage-clients/add-clients' element={<MenuList />} />
           <Route
-            path='/home/manage-clients/:clientId'
-            element={<EditDetails />}
+            path='manage-clients/edit-client/:clientId'
+            element={<MenuList />}
           />
-
+          <Route path='manage-clients/:clientId' element={<EditDetails />} />
           <Route path='subscriptions' element={<Subscriptions />} />
           <Route path='client-list' element={<ClientList />} />
           <Route path='audit-logs' element={<AuditLogs />} />

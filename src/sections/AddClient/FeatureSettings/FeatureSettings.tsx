@@ -75,20 +75,17 @@ const FeatureSettings = () => {
         <div className={styles.feature_setting_section_head}>
           <p>Monetization & Access Control</p>
         </div>
-        <div className={styles.checkbox}>
-          <div className={styles.checkbox_image}>
-            <input
-              type='checkbox'
-              checked={formData.advertisement}
-              onChange={(e) => handleCheckboxSelect(e)}
-              name='advertisement'
-              className={styles.checkbox_input}
-            />
-          </div>
-          <div className={styles.checkbox_label}>
-            <p>Advertisement</p>
-          </div>
-        </div>
+        <label className={styles.checkboxContainer}>
+          <input
+            type='checkbox'
+            checked={formData.advertisement}
+            onChange={handleCheckboxSelect}
+            name='advertisement'
+            className={styles.hiddenCheckbox}
+          />
+          <span className={styles.customCheckbox}></span>
+          <span className={styles.checkboxLabel}>Advertisement</span>
+        </label>
         <div className={styles.feature_setting_section_input}>
           <div className={styles.select}>
             <Input
@@ -123,20 +120,17 @@ const FeatureSettings = () => {
             />
           </div>
         </div>
-        <div className={styles.checkbox}>
-          <div className={styles.checkbox_image}>
-            <input
-              type='checkbox'
-              checked={formData.subscription}
-              onChange={(e) => handleCheckboxSelect(e)}
-              name='subscription'
-              className={styles.checkbox_input}
-            />
-          </div>
-          <div className={styles.checkbox_label}>
-            <p>Subscription</p>
-          </div>
-        </div>
+        <label className={styles.checkboxContainer}>
+          <input
+            type='checkbox'
+            checked={formData.subscription}
+            onChange={handleCheckboxSelect}
+            name='subscription'
+            className={styles.hiddenCheckbox}
+          />
+          <span className={styles.customCheckbox}></span>
+          <span className={styles.checkboxLabel}>Subscription</span>
+        </label>
         <div>
           <div className={styles.select}>
             <CheckboxMultiSelectDropdown
