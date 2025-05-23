@@ -107,7 +107,7 @@ export const AddClientProvider: React.FC<{ children: ReactNode }> = ({
   const [isSaving, setIsSaving] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
-
+  console.log('');
   const updateFormData = (data: Partial<AddClientData>) => {
     setFormData((prev) => ({ ...prev, ...data }));
   };
