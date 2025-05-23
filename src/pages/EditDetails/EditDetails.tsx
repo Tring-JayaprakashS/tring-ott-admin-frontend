@@ -11,7 +11,7 @@ import {
   AddClientProvider,
   useAddClient,
 } from '../../context/AddClientContext';
-import { useParams } from 'react-router-dom';
+import { useParams, useNavigate } from 'react-router-dom';
 import { useEffect } from 'react';
 
 const EditDetailsContent = () => {
@@ -22,15 +22,19 @@ const EditDetailsContent = () => {
       fetchClientById(clientId);
     }
   }, [clientId, fetchClientById]);
+  const navigate = useNavigate();
 
   return (
     <div className={styles.appconfig_page}>
       <div className={styles.appconfig_page_head_wrap}>
         <MenuTitle
-          title='Add Client'
+          title={`${clientId}`}
           showButtonstate={ShowAddButton.SHOW_BUTTON}
           buttonContent='Edit Details'
           buttonImage={IC_EDIT_DETAILS}
+          onClick={() => {
+            navigate(`/home/manage-clients/edit-client/${clientId}`);
+          }}
         />
 
         <div className={styles.card_wrapper}>

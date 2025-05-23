@@ -191,21 +191,33 @@ export const AddClientProvider: React.FC<{ children: ReactNode }> = ({
         .replace(/\s+/g, '_');
 
       const clientDocRef = doc(db, 'clients', correctClientName);
-      const existingDoc = await getDoc(clientDocRef);
-      if (existingDoc.exists()) {
-        throw new Error(
-          `Client with name "${clientData.clientName}" already exists`
+
+      if (formData.id) {
+        await setDoc(
+          clientDocRef,
+          {
+            ...dataToSave,
+            updatedAt: serverTimestamp(),
+          },
+          { merge: true }
+        );
+      } else {
+        const existingDoc = await getDoc(clientDocRef);
+        if (existingDoc.exists()) {
+          throw new Error(
+            `Client with name "${clientData.clientName}" already exists`
+          );
+        }
+        await setDoc(
+          clientDocRef,
+          {
+            ...dataToSave,
+            createdAt: serverTimestamp(),
+            updatedAt: serverTimestamp(),
+          },
+          { merge: false }
         );
       }
-      await setDoc(
-        clientDocRef,
-        {
-          ...dataToSave,
-          createdAt: serverTimestamp(),
-          updatedAt: serverTimestamp(),
-        },
-        { merge: false }
-      );
 
       updateFormData({ id: correctClientName });
       return correctClientName;

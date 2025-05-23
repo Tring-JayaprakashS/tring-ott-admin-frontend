@@ -13,6 +13,7 @@ const BottomBar = ({
   onPreview,
   saveText,
   lastSavedText,
+  isSavedisabled,
   state,
 }: BottomBarProps) => {
   return (
@@ -30,6 +31,7 @@ const BottomBar = ({
         {state === BottomBarState.SHOW_WITH_DRAFT_AND_PREVIEW && (
           <Button
             variant='transparent'
+            disabled={isSavedisabled}
             className={styles.previewButton}
             onClick={onPreview}>
             Preview

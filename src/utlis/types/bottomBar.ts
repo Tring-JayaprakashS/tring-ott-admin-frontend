@@ -7,4 +7,5 @@ export type BottomBarProps = {
   lastSavedText?: string;
   state: BottomBarState;
   position: BottomBarPosition;
+  isSavedisabled: boolean;
 };

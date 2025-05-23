@@ -37,9 +37,9 @@ const AnalyticsTracking = () => {
           )}
 
           <div className={styles.info_item}>
-            <label className={styles.info_label}>Ad Delivery Provider</label>
+            <label className={styles.info_label}>Player Analytics</label>
             <div className={styles.info_value}>
-              {formData.adDeliveryProvider || 'Not specified'}
+              {formData.playerAnalytics ? 'Enabled' : 'Not specified'}
             </div>
           </div>
         </div>
