@@ -68,6 +68,7 @@ export type platformsOption = {
 };
 
 export type ManageClientsData = {
+  id: string;
   name: string;
   logo: string;
   premium: boolean;
