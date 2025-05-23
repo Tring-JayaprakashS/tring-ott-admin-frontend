@@ -27,6 +27,7 @@ import {
 
 const Clients: ManageClientsData[] = [
   {
+    id: '',
     name: 'Viva Tv',
     logo: IMG_VIVA_LOGO,
     premium: true,
@@ -72,6 +73,7 @@ const Clients: ManageClientsData[] = [
     ],
   },
   {
+    id: '',
     name: 'Izsit',
     logo: IMG_LIZSIT_LOGO,
     premium: true,
@@ -80,7 +82,7 @@ const Clients: ManageClientsData[] = [
     nextBilling: '06/21/2024',
     platforms: [
       {
-        id: 'apple_tv',
+        id: 'app  le_tv',
         image: IC_APPLE_TV,
         alt: 'Apple TV logo',
       },
@@ -117,6 +119,7 @@ const Clients: ManageClientsData[] = [
     ],
   },
   {
+    id: '',
     name: 'Minno',
     logo: IMG_MINNO_LOGO,
     premium: false,
@@ -162,6 +165,7 @@ const Clients: ManageClientsData[] = [
     ],
   },
   {
+    id: '',
     name: 'Chek+',
     logo: IMG_CHECK_LOGO,
     premium: true,
@@ -207,6 +211,7 @@ const Clients: ManageClientsData[] = [
     ],
   },
   {
+    id: '',
     name: 'Estante',
     logo: IMG_ESTANTE_LOGO,
     premium: false,
@@ -252,6 +257,7 @@ const Clients: ManageClientsData[] = [
     ],
   },
   {
+    id: '',
     name: 'KSL+',
     logo: IMG_KSL_LOGO,
     premium: true,
