@@ -8,8 +8,17 @@
     color: var(--subtitle-content);
     @apply font-[500px] text-[13px] mb-[16px];
   }
+  &_section_form_cliIntegration {
+    @apply w-full;
+  }
+}
+.cliIntegration_row {
+  @apply flex  gap-4 mb-4;
 }
 
-.cliIntegration_row {
+.form_field {
+  @apply w-[368px];
+}
+.empty_space {
   @apply w-[368px];
 }

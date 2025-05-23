@@ -120,6 +120,24 @@ export const PRIMARY_STREAMING_FEATURE = [
   },
 ];
 
+export const cityOptions = [
+  { value: 'New York', label: 'New York' },
+  { value: 'Los Angeles', label: 'Los Angeles' },
+  { value: 'Chicago', label: 'Chicago' },
+];
+
+export const StateOptions = [
+  { value: 'Tamil Nadu', label: 'Tamil Nadu' },
+  { value: 'Delhi', label: 'Delhi' },
+  { value: 'Kerala', label: 'Kerala' },
+];
+
+export const defaultLanguageOptions = [
+  { value: 'English', label: 'English' },
+  { value: 'Tamil', label: 'Tamil' },
+  { value: 'Hindi', label: 'Hindi' },
+];
+
 export const ANALYTICS_TRACKING = [
   {
     id: 'Firebase',
@@ -140,51 +158,51 @@ export const ANALYTICS_TRACKING = [
 ];
 
 export const durationOptions = [
-  { value: '3months', label: '3 Months' },
-  { value: '6months', label: '6 Months' },
-  { value: '1year', label: '1 Year' },
-  { value: '2years', label: '2 Years' },
+  { value: '3 Months', label: '3 Months' },
+  { value: '6 Months', label: '6 Months' },
+  { value: '1 year', label: '1 Year' },
+  { value: '2 Years', label: '2 Years' },
 ];
 
 export const countryOptions = [
-  { value: 'us', label: 'United States' },
-  { value: 'ca', label: 'Canada' },
-  { value: 'uk', label: 'United Kingdom' },
-  { value: 'au', label: 'Australia' },
+  { value: 'United States', label: 'United States' },
+  { value: 'Canada', label: 'Canada' },
+  { value: 'United Kingdom', label: 'United Kingdom' },
+  { value: 'Australia', label: 'Australia' },
 ];
 
 export const AuthenticationProvideroptions = [
-  { value: 'Cn', label: 'Cognito' },
-  { value: 'Ip', label: 'In Player' },
-  { value: 'CB', label: 'Custom Backend' },
+  { value: 'Cognito', label: 'Cognito' },
+  { value: 'In Player', label: 'In Player' },
+  { value: 'Custom Backend', label: 'Custom Backend' },
 ];
 
 export const mediaPlayeroptions = [
-  { value: 'wh', label: 'Whatsapp' },
-  { value: 'fa', label: 'FaceBook' },
-  { value: 'Ne', label: 'Netflix' },
+  { value: 'Whatsapp', label: 'Whatsapp' },
+  { value: 'FaceBook', label: 'FaceBook' },
+  { value: 'Netflix', label: 'Netflix' },
 ];
 
 export const platformsoptions = [
-  { id: 'appletv', name: 'Apple TV' },
-  { id: 'roku', name: 'Roku' },
-  { id: 'androidtv', name: 'Android TV' },
-  { id: 'samsung', name: 'Samsung' },
-  { id: 'lg', name: 'LG' },
-  { id: 'vizio', name: 'Vizio' },
-  { id: 'web', name: 'Web' },
-  { id: 'ios', name: 'iOS Mobile' },
-  { id: 'android', name: 'Android Mobile' },
+  { id: 'Apple TV', name: 'Apple TV' },
+  { id: 'Roku', name: 'Roku' },
+  { id: 'Android TV', name: 'Android TV' },
+  { id: 'Samsung', name: 'Samsung' },
+  { id: 'LG', name: 'LG' },
+  { id: 'Vizio', name: 'Vizio' },
+  { id: 'Web', name: 'Web' },
+  { id: 'iOS Mobile', name: 'iOS Mobile' },
+  { id: 'Android Mobile', name: 'Android Mobile' },
 ];
 
 export const Languageoptions = [
   { id: 'english', name: 'English' },
   {
-    id: 'tamil',
+    id: 'Tamil',
     name: 'Tamil',
   },
   {
-    id: 'hindi',
+    id: 'Hindi',
     name: 'Hindi',
   },
   {
@@ -192,11 +210,26 @@ export const Languageoptions = [
     name: 'Malayalam',
   },
   {
-    id: 'telugu',
+    id: 'Telugu',
     name: 'Telugu',
   },
   {
-    id: 'kannadam',
+    id: 'Kannadam',
     name: 'Kannada',
+  },
+];
+
+export const grantTypeoptions = [
+  {
+    value: 'Password',
+    label: 'password',
+  },
+  {
+    value: 'Fingerprint',
+    label: 'Fingerprint',
+  },
+  {
+    value: 'Pin',
+    label: 'Pin',
   },
 ];

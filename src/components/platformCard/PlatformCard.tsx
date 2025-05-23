@@ -7,10 +7,6 @@ interface PlatformCardProps {
   imagesrc?: string;
   imageAlt?: string;
   text?: string;
-  width?: string | number;
-  height?: string | number;
-  imgwidth?: string | number;
-  imgheight?: string | number;
   onClick?: (platformId: string) => void;
   platformId: string;
   isSelected?: boolean;
@@ -22,18 +18,12 @@ const PlatformCard: React.FC<PlatformCardProps> = ({
   imagesrc,
   imageAlt,
   text,
-  width = '',
-  height = '',
-  imgwidth = '',
-  imgheight = '',
   onClick,
   platformId,
   isSelected = false,
   variant,
 }) => {
   const buttonStyle = {
-    width: typeof width === 'number' ? `${width}px` : width,
-    height: typeof height === 'number' ? `${height}px` : height,
     ...(isSelected
       ? {
           borderRadius: '50px',
@@ -41,11 +31,6 @@ const PlatformCard: React.FC<PlatformCardProps> = ({
           background: 'rgba(102, 181, 179, 0.10)',
         }
       : {}),
-  };
-
-  const imageStyle = {
-    width: typeof imgwidth === 'number' ? `${imgwidth}px` : imgwidth,
-    height: typeof imgheight === 'number' ? `${imgheight}px` : imgheight,
   };
 
   const handleClick = () => {
@@ -70,7 +55,6 @@ const PlatformCard: React.FC<PlatformCardProps> = ({
         <img
           src={imagesrc}
           alt={imageAlt}
-          style={imageStyle}
           className={`${Styles.button_image_url} ${variantImg}`}
         />
       ) : (

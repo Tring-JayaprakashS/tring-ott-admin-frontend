@@ -99,9 +99,9 @@ const FeatureSettings = () => {
               value={formData.tools}
               onChange={handleInputChange}
               options={[
-                { value: 'En', label: 'English' },
-                { value: 'Ta', label: 'Tamil' },
-                { value: 'Hi', label: 'Hindi' },
+                { value: 'English', label: 'English' },
+                { value: 'Tamil', label: 'Tamil' },
+                { value: 'Hindi', label: 'Hindi' },
               ]}
               containerStyles={styles.form_field}
               inputStyles={styles.input_field}
