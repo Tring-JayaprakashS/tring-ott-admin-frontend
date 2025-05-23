@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import FormPopup from '../../../components/Popups/FormPopup/FormPopup';
 import { AccessDropDown } from '../../../components/AccessDropDown/AccessDropDown';
-import { UserFormData } from '../../../utlis/helpers/schema';
 import { FilterSectionProps } from '../../../utlis/types/formPopup';
 import { ClientFilterFormData } from '../../../utlis/types/manageClientsType';
 import {
@@ -31,9 +30,7 @@ const FilterSection = ({
     billingDateFrom: '',
     billingDateTo: '',
   });
-  const [formErrors, setFormErrors] = useState<
-    Partial<Record<keyof UserFormData, string>>
-  >({});
+
   const [selectedPlatforms, setSelectedPlatforms] = useState<string[]>([]);
   const isSelected = (platformId: string): boolean => {
     return selectedPlatforms.includes(platformId);
@@ -74,10 +71,6 @@ const FilterSection = ({
       setData((prevData) => ({
         ...prevData,
         [field]: selectedOption.name,
-      }));
-      setFormErrors((prevError) => ({
-        ...prevError,
-        [field]: undefined,
       }));
     };
 

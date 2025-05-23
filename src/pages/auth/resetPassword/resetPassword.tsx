@@ -2,22 +2,16 @@ import React, { useState } from 'react';
 import Input from '../../../components/Input/Input';
 import Button from '../../../components/Button/Button';
 import { confirmPasswordReset, getAuth } from 'firebase/auth';
-import { useNavigate, Link } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
 import Styles from './resetPassword.module.scss';
-import {
-  IC_SIGNIN_LOGO,
-  IMG_FRAME,
-  IMG_SIGIN_ADMIN_BG,
-} from '../../../utlis/images';
+import { IC_SIGNIN_LOGO } from '../../../utlis/images';
 import ResetPasswordModal from '../../../components/resetPasswordModel/ResetPasswordModal';
 
 const resetPassword = () => {
   const [password, setPassword] = useState('');
 
   const [error, setError] = useState('');
-  const [message, setMessage] = useState('');
-  const navigate = useNavigate();
   const [showModal, setShowModal] = useState(false);
   const [email, setEmail] = useState('');
   const auth = getAuth();
@@ -47,6 +41,7 @@ const resetPassword = () => {
 
     try {
       await confirmPasswordReset(auth, oobCode, password);
+
       setShowModal(true);
     } catch (err: any) {
       setError(err.message || 'Reset password failed');
@@ -71,7 +66,6 @@ const resetPassword = () => {
         Set a new Password to regain access
       </p>
       {error && <p className={Styles.error_message}>{error}</p>}
-      {message && <p className={Styles.success_message}>{message}</p>}
       <form className={Styles.signin_container_form} onSubmit={handleSubmit}>
         <div className={Styles.input}>
           <Input

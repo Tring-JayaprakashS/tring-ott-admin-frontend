@@ -16,7 +16,7 @@ import { auth } from '../firebase/firebase';
 
 interface AuthType {
   currentUser: User | null;
-  userRole: string | null;
+  // userRole: string | null;
   error: string | null;
   login: (email: string, password: string) => Promise<boolean>;
   logout: () => Promise<boolean>;
@@ -40,7 +40,7 @@ interface ProviderProps {
 
 export const AuthProvider: React.FC<ProviderProps> = ({ children }) => {
   const [currentUser, setCurrentUser] = useState<User | null>(null);
-  const [userRole, setUserRole] = useState<string | null>(null);
+  // const [userRole, setUserRole] = useState<string | null>(null);
 
   const [error, setError] = useState<string | null>(null);
   const [loading, setLoading] = useState(true);
@@ -48,7 +48,7 @@ export const AuthProvider: React.FC<ProviderProps> = ({ children }) => {
   const login = async (email: string, password: string) => {
     try {
       setError(null);
-      const userCred = await signInWithEmailAndPassword(auth, email, password);
+      await signInWithEmailAndPassword(auth, email, password);
       return true;
     } catch (error: any) {
       setError(error.message || 'Login failed');
@@ -88,7 +88,6 @@ export const AuthProvider: React.FC<ProviderProps> = ({ children }) => {
 
   const value = {
     currentUser,
-    userRole,
     login,
     logout,
     resetPassword,

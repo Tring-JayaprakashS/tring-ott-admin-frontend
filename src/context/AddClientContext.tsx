@@ -1,7 +1,4 @@
 import React, { createContext, useContext, useState, ReactNode } from 'react';
-import { db } from '../firebase/firebase';
-import { collection, addDoc, serverTimestamp } from 'firebase/firestore';
-import { ref, uploadBytes, getDownloadURL } from 'firebase/storage';
 
 export interface AddClientData {
   clientName: string;
@@ -99,14 +96,14 @@ export const AddClientProvider: React.FC<{ children: ReactNode }> = ({
       setIsSaving(true);
       setError(null);
 
-      let clientData = { ...formData };
+      // let clientData = { ...formData };
 
-      const { clientLogo, ...dataToSave } = clientData;
+      // const { clientLogo, ...dataToSave } = clientData;
 
-      const clientDocRef = await addDoc(collection(db, 'clients'), {
-        ...dataToSave,
-        createdAt: serverTimestamp(),
-      });
+      // const clientDocRef = await addDoc(collection(db, 'clients'), {
+      //   ...dataToSave,
+      //   createdAt: serverTimestamp(),
+      // });
 
       setFormData(InitialFormData);
     } catch (err) {

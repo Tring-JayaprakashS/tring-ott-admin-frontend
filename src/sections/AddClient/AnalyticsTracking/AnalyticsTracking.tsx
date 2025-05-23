@@ -1,4 +1,3 @@
-import { useState } from 'react';
 import styles from './AnalyticsTracking.module.scss';
 import TitleCard from '../../../components/TitleCard/TitleCard';
 import PlatformCard from '../../../components/platformCard/PlatformCard';

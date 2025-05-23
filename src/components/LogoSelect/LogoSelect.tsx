@@ -14,12 +14,10 @@ type LogoSelectProps = {
 const LogoSelect = ({ title, width }: LogoSelectProps) => {
   const { formData, updateFormData } = useAddClient();
   const {
-    uploadFile,
     fileInput,
     uploadURL,
     handleOriginalFileChange,
     openFileSelector,
-    removeFile,
     handleDragOver,
     handleOriginalDrop,
   } = FileHandling();

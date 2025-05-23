@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import styles from './FeatureSetting.module.scss';
 import TitleCard from '../../../components/TitleCard/TitleCard';
 import PlatformCard from '../../../components/platformCard/PlatformCard';

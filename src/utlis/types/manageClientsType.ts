@@ -1,5 +1,3 @@
-import { string } from 'zod';
-
 export type Option = {
   id: string;
   name: string;

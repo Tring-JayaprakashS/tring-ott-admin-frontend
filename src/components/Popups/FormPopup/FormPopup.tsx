@@ -26,7 +26,7 @@ const FormPopup = ({
   if (!isVisible) return null;
 
   const isFormEmpty = () => {
-    return Object.entries(formData).every(([key, value]) => {
+    return Object.entries(formData).every(([value]) => {
       if (Array.isArray(value)) return value.length === 0;
       return value === '';
     });

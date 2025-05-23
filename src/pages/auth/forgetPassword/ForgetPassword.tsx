@@ -6,7 +6,6 @@ import Button from '../../../components/Button/Button';
 import { Link } from 'react-router-dom';
 import { useAUth } from '../../../context/Authcontext';
 import ResetPasswordModal from '../../../components/resetPasswordModel/ResetPasswordModal';
-import { fetchSignInMethodsForEmail, getAuth } from 'firebase/auth';
 
 const ForgetPassword = () => {
   const [error, setError] = useState('');
@@ -15,7 +14,6 @@ const ForgetPassword = () => {
   const [message, setMessage] = useState('');
   const [showModal, setShowModal] = useState(false);
   const { resetPassword } = useAUth();
-  const auth = getAuth();
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();

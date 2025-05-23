@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import styles from './CMSIntegration.module.scss';
 import TitleCard from '../../../components/TitleCard/TitleCard';
 import Input from '../../../components/adminInput/Input';
