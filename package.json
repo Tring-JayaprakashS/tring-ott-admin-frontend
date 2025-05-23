@@ -30,9 +30,11 @@
   "dependencies": {
     "@reduxjs/toolkit": "^2.8.0",
     "axios": "^1.8.4",
+    "date-fns": "^4.1.0",
     "firebase": "^11.6.0",
     "firebase-admin": "^13.3.0",
     "react": "^18.3.1",
+    "react-datepicker": "^8.3.0",
     "react-dom": "^18.3.1",
     "react-helmet": "^6.1.0",
     "react-icons": "^5.5.0",

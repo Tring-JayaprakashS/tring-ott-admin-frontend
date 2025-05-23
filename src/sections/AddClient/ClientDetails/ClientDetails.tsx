@@ -3,7 +3,12 @@ import styles from './ClientDetails.module.scss';
 import TitleCard from '../../../components/TitleCard/TitleCard';
 import Input from '../../../components/adminInput/Input';
 import { IC_CALENDER } from '../../../utlis/images';
-import { durationOptions, countryOptions } from '../../../data/PlatformCard';
+import {
+  durationOptions,
+  countryOptions,
+  cityOptions,
+  StateOptions,
+} from '../../../data/PlatformCard';
 import { useAddClient } from '../../../context/AddClientContext';
 import LogoSelect from '../../../components/LogoSelect/LogoSelect';
 
@@ -75,11 +80,7 @@ const ClientDetails = () => {
                 placeholder='-Select-'
                 value={formData.city}
                 onChange={handleInputChange}
-                options={[
-                  { value: 'ny', label: 'New York' },
-                  { value: 'la', label: 'Los Angeles' },
-                  { value: 'ch', label: 'Chicago' },
-                ]}
+                options={cityOptions}
                 containerStyles={styles.form_field}
               />
 
@@ -90,11 +91,7 @@ const ClientDetails = () => {
                 placeholder='-Select-'
                 value={formData.state}
                 onChange={handleInputChange}
-                options={[
-                  { value: 'tn', label: 'Tamil Nadu' },
-                  { value: 'De', label: 'Delhi' },
-                  { value: 'Ke', label: 'Kerala' },
-                ]}
+                options={StateOptions}
                 containerStyles={styles.form_field}
               />
 

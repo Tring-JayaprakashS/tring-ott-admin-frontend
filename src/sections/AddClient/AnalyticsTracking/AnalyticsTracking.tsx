@@ -9,18 +9,18 @@ const AnalyticsTracking = () => {
   const { formData, updateFormData } = useAddClient();
 
   const handleStreamingSelect = (platformId: string) => {
-    const currentSelected = [...formData.primaryStreamingFeature];
+    const currentSelected = [...formData.analyticsTools];
     if (currentSelected.includes(platformId)) {
       const updated = currentSelected.filter((id) => id !== platformId);
-      updateFormData({ primaryStreamingFeature: updated });
+      updateFormData({ analyticsTools: updated });
     } else {
       updateFormData({
-        primaryStreamingFeature: [...currentSelected, platformId],
+        analyticsTools: [...currentSelected, platformId],
       });
     }
   };
   const isStreamingSelected = (platformId: string): boolean => {
-    return formData.primaryStreamingFeature.includes(platformId);
+    return formData.analyticsTools.includes(platformId);
   };
   const handleCheckboxSelect = (e: React.ChangeEvent<HTMLInputElement>) => {
     const { name, checked } = e.target;
@@ -45,20 +45,18 @@ const AnalyticsTracking = () => {
           </div>
         ))}
       </div>
-      <div className={styles.checkbox}>
-        <div className={styles.checkbox_image}>
-          <input
-            type='checkbox'
-            checked={formData.playerAnalytics}
-            onChange={(e) => handleCheckboxSelect(e)}
-            name='playerAnalytics'
-            className={styles.checkbox_input}
-          />
-        </div>
-        <div className={styles.checkbox_label}>
-          <p>Player analytics</p>
-        </div>
-      </div>
+
+      <label className={styles.checkboxContainer}>
+        <input
+          type='checkbox'
+          checked={formData.playerAnalytics}
+          onChange={handleCheckboxSelect}
+          name='playerAnalytics'
+          className={styles.hiddenCheckbox}
+        />
+        <span className={styles.customCheckbox}></span>
+        <span className={styles.checkboxLabel}>Player Analytics</span>
+      </label>
     </TitleCard>
   );
 };

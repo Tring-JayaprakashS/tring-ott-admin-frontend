@@ -3,7 +3,10 @@ import styles from './Language.module.scss';
 import TitleCard from '../../../components/TitleCard/TitleCard';
 import Input from '../../../components/adminInput/Input';
 import { CheckboxMultiSelectDropdown } from '../../../components/MultiSelectDropdown/MultiSelectDropdown';
-import { Languageoptions } from '../../../data/PlatformCard';
+import {
+  defaultLanguageOptions,
+  Languageoptions,
+} from '../../../data/PlatformCard';
 import { useAddClient } from '../../../context/AddClientContext';
 
 const Language = () => {
@@ -46,11 +49,7 @@ const Language = () => {
             placeholder='-Select-'
             value={formData.defaultLanguage}
             onChange={handleInputChange}
-            options={[
-              { value: 'En', label: 'English' },
-              { value: 'Ta', label: 'Tamil' },
-              { value: 'Hi', label: 'Hindi' },
-            ]}
+            options={defaultLanguageOptions}
             containerStyles={styles.form_field}
           />
         </div>

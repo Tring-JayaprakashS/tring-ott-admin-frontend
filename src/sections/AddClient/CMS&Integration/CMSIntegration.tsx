@@ -5,6 +5,7 @@ import Input from '../../../components/adminInput/Input';
 import {
   AuthenticationProvideroptions,
   mediaPlayeroptions,
+  grantTypeoptions,
 } from '../../../data/PlatformCard';
 import { useAddClient } from '../../../context/AddClientContext';
 
@@ -40,8 +41,27 @@ const CMSIntegration = () => {
             containerStyles={styles.form_field}
             inputStyles={styles.input_field}
           />
-        </div>
 
+          <Input
+            label='Config Name'
+            type='text'
+            name='configName'
+            placeholder='Enter config name'
+            value={formData.configName}
+            containerStyles={styles.form_field}
+            onChange={handleInputChange}
+          />
+
+          <Input
+            label='Config ID'
+            type='text'
+            name='configId'
+            placeholder='Enter config ID'
+            value={formData.configId}
+            containerStyles={styles.form_field}
+            onChange={handleInputChange}
+          />
+        </div>
         <div className={styles.cliIntegration_row}>
           <Input
             label='Authentication Provider'
@@ -54,6 +74,52 @@ const CMSIntegration = () => {
             containerStyles={styles.form_field}
             inputStyles={styles.input_field}
           />
+
+          <Input
+            label='Client ID'
+            type='text'
+            name='clientId'
+            placeholder='Enter client ID'
+            value={formData.clientId}
+            containerStyles={styles.form_field}
+            onChange={handleInputChange}
+          />
+
+          <Input
+            label='Merchant ID'
+            type='text'
+            name='merchantId'
+            placeholder='Enter merchant Id'
+            value={formData.merchantId}
+            containerStyles={styles.form_field}
+            onChange={handleInputChange}
+          />
+        </div>
+
+        <div className={styles.cliIntegration_row}>
+          <Input
+            label='Password'
+            type='password'
+            name='password'
+            placeholder='Enter password'
+            value={formData.password}
+            onChange={handleInputChange}
+            containerStyles={styles.form_field}
+            showToogle={true}
+          />
+
+          <Input
+            label='Grant Type'
+            type='select'
+            name='grantType'
+            placeholder='-Select-'
+            value={formData.grantType}
+            onChange={handleInputChange}
+            options={grantTypeoptions}
+            containerStyles={styles.form_field}
+            inputStyles={styles.input_field}
+          />
+          <div className={styles.empty_space}></div>
         </div>
       </div>
     </TitleCard>

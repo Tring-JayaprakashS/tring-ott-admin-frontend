@@ -59,7 +59,6 @@
 
 .date_icon {
   @apply absolute right-[14px] flex items-center justify-center pointer-events-none;
-
   opacity: 0.5;
 }
 
@@ -111,4 +110,17 @@
 
 .select_option {
   color: var(--color-primary);
+}
+
+.react-datepicker {
+  border: none;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+}
+.react-datepicker__header {
+  background: white;
+  border-bottom: none;
+}
+
+.react-datepicker * {
+  border-color: transparent !important;
 }
