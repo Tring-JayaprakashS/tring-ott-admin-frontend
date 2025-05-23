@@ -1,6 +1,6 @@
 import React, { createContext, useContext, useState, ReactNode } from 'react';
-import { db } from '../firebase/firebase';
-import { serverTimestamp, doc, setDoc, getDoc } from 'firebase/firestore';
+import { db, storage } from '../firebase/firebase';
+import { doc, getDoc, setDoc, serverTimestamp } from 'firebase/firestore';
 import { ref, uploadBytes, getDownloadURL } from 'firebase/storage';
 
 export interface AddClientData {

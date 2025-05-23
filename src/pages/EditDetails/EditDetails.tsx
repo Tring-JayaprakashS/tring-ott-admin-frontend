@@ -15,13 +15,13 @@ import { useParams } from 'react-router-dom';
 import { useEffect } from 'react';
 
 const EditDetailsContent = () => {
-  const { clientName } = useParams<{ clientName: string }>();
+  const { clientId } = useParams<{ clientId: string }>();
   const { fetchClientById } = useAddClient();
   useEffect(() => {
-    if (clientName) {
-      fetchClientById(clientName);
+    if (clientId) {
+      fetchClientById(clientId);
     }
-  }, [clientName, fetchClientById]);
+  }, [clientId, fetchClientById]);
 
   return (
     <div className={styles.appconfig_page}>
