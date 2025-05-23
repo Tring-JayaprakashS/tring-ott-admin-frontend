@@ -26,19 +26,6 @@ const ClientDetails = () => {
     updateFormData({ countryCode: code });
   };
 
-  const handleDateChange = (date: Date | null, fieldName: string) => {
-    if (date) {
-      const formattedDate = date.toISOString().split('T')[0];
-      updateFormData({ [fieldName]: formattedDate });
-    } else {
-      updateFormData({ [fieldName]: '' });
-    }
-  };
-
-  const getDateValue = (dateString: string) => {
-    return dateString ? new Date(dateString) : null;
-  };
-
   return (
     <TitleCard title='Client details'>
       <div className={styles.client_details_mainwrap}>
@@ -59,7 +46,7 @@ const ClientDetails = () => {
                 placeholder='Enter client name'
                 value={formData.clientName}
                 containerStyles={styles.form_field}
-                onChange={() => handleInputChange}
+                onChange={handleInputChange}
               />
 
               <Input
@@ -127,8 +114,8 @@ const ClientDetails = () => {
                 name='contractStartDate'
                 placeholder='MM/DD/YYYY'
                 iconUrl={IC_CALENDER}
-                value={getDateValue(formData.contractStartDate)}
-                onChange={handleDateChange}
+                value={formData.contractStartDate}
+                onChange={handleInputChange}
                 containerStyles={styles.form_field}
               />
 
@@ -149,7 +136,7 @@ const ClientDetails = () => {
                 name='uatReleaseDate'
                 placeholder='MM/DD/YYYY'
                 iconUrl={IC_CALENDER}
-                value={getDateValue(formData.uatReleaseDate)}
+                value={formData.uatReleaseDate}
                 onChange={handleInputChange}
                 containerStyles={styles.form_field}
               />
@@ -162,7 +149,7 @@ const ClientDetails = () => {
                   type='date'
                   name='productionKeyword'
                   placeholder='MM/DD/YYYY'
-                  value={getDateValue(formData.productionKeyword)}
+                  value={formData.productionKeyword}
                   onChange={handleInputChange}
                   containerStyles={styles.form_field}
                 />
