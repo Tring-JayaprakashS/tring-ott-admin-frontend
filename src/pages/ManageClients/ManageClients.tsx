@@ -1,153 +1,35 @@
-import { useEffect, useState } from 'react';
 import ManageClientsCard from '../../components/ManagClients/ManageClientsCard/ManageClientsCard';
 import MenuTitle from '../../components/MenuTitle/MenuTitle';
-import { Clients } from '../../data/ManageClients';
 import { ShowAddButton } from '../../utlis/enums/fileUpload.enum';
 import styles from './ManageClients.module.scss';
 import FilterSection from '../../sections/ManagClients/FilterSection/FilterSection';
 import { IC_INFO_ICON } from '../../utlis/images';
 import DeleteSection from '../../sections/ManagClients/DeleteSection/DeleteSection';
 import ClientDropdown from '../../components/ManagClients/ClientDropdown/ClientDropdown';
-import { useNavigate } from 'react-router-dom';
-import { ClientFilterFormData } from '../../utlis/types/manageClientsType';
+import { ClientStatus } from '../../utlis/enums/manageClients';
+import { clientHelpers } from '../../utlis/helpers/clientHelpers';
 
 const ManageClients = () => {
-  const [clientData, setClientData] = useState(Clients);
-  const [isPopupVisible, setIsPopupVisible] = useState(false);
-  const [isDeletePopupVisible, setIsDeletePopupVisible] = useState(false);
-  const [activeDropdownIndex, setActiveDropdownIndex] = useState<number | null>(
-    null
-  );
-  const [deleteIndex, setDeleteIndex] = useState<number | null>(null);
+  const {
+    loading,
+    togglePopup,
+    navigator,
+    filteredClients,
+    handleDropdownToggle,
+    activeDropdownIndex,
+    handleToggleClientStatus,
+    handleDeleteClient,
+    setActiveDropdownIndex,
+    isPopupVisible,
+    setFormData,
+    formData,
+    isDeletePopupVisible,
+    setIsDeletePopupVisible,
+    deleteIndex,
+    handleDeletePermanently,
+  } = clientHelpers();
 
-  const [filteredClients, setFilteredClients] = useState(Clients);
-
-  const [formData, setFormData] = useState<ClientFilterFormData>({
-    subscription: '',
-    status: '',
-    platforms: [],
-    memberSinceFrom: '',
-    memberSinceTo: '',
-    billingDateFrom: '',
-    billingDateTo: '',
-  });
-
-  const navigator = useNavigate();
-  const handleDropdownToggle = (index: number) => {
-    setActiveDropdownIndex((prevIndex) => (prevIndex === index ? null : index));
-  };
-
-  const togglePopup = () => {
-    setIsPopupVisible(!isPopupVisible);
-  };
-
-  const handleDeactivateClient = (index: number) => {
-    setClientData(
-      clientData.map((data, i) =>
-        i === index
-          ? {
-              ...data,
-              status: {
-                label: 'Deactivate',
-                value: false,
-              },
-            }
-          : data
-      )
-    );
-    setActiveDropdownIndex(null);
-  };
-  const handleActivateClient = (index: number) => {
-    setClientData(
-      clientData.map((data, i) =>
-        i === index
-          ? {
-              ...data,
-              status: {
-                label: 'Active',
-                value: true,
-              },
-            }
-          : data
-      )
-    );
-    setActiveDropdownIndex(null);
-  };
-
-  const handleDeleteClient = (index: number) => {
-    setActiveDropdownIndex(null);
-    setDeleteIndex(index);
-    setIsDeletePopupVisible(true);
-  };
-
-  const handleDeletePermanently = (index: number) => {
-    const updatedData = clientData.filter((_, i) => i !== index);
-    setClientData(updatedData);
-    setIsDeletePopupVisible(false);
-    setDeleteIndex(null);
-  };
-
-  const filterClients = () => {
-    const {
-      subscription,
-      status,
-      platforms,
-      memberSinceFrom,
-      memberSinceTo,
-      billingDateFrom,
-      billingDateTo,
-    } = formData;
-
-    const result = clientData.filter((client) => {
-      if (subscription) {
-        const isPremium = subscription === 'Premium';
-        if (client.premium !== isPremium) return false;
-      }
-
-      if (status && client.status.label.toLowerCase() !== status.toLowerCase())
-        return false;
-
-      if (
-        platforms.length > 0 &&
-        !platforms.some((selectedId) =>
-          client.platforms.some((p) => p.id === selectedId)
-        )
-      ) {
-        return false;
-      }
-
-      if (
-        memberSinceFrom &&
-        new Date(client.memberSince) < new Date(memberSinceFrom)
-      )
-        return false;
-      if (
-        memberSinceTo &&
-        new Date(client.memberSince) > new Date(memberSinceTo)
-      )
-        return false;
-
-      if (
-        billingDateFrom &&
-        new Date(client.nextBilling) < new Date(billingDateFrom)
-      ) {
-        return false;
-      }
-      if (
-        billingDateTo &&
-        new Date(client.nextBilling) > new Date(billingDateTo)
-      )
-        return false;
-
-      return true;
-    });
-
-    setFilteredClients(result);
-  };
-
-  useEffect(() => {
-    filterClients();
-  }, [formData, clientData]);
+  if (loading) return <div>Loading...</div>;
 
   return (
     <>
@@ -174,9 +56,21 @@ const ManageClients = () => {
                 {activeDropdownIndex === index && (
                   <ClientDropdown
                     clientData={client}
-                    onDeactivate={() => handleDeactivateClient(index)}
-                    onActivate={() => handleActivateClient(index)}
-                    onDelete={() => handleDeleteClient(index)}
+                    onDeactivate={() =>
+                      handleToggleClientStatus(
+                        index,
+                        client.id,
+                        ClientStatus.Deactivate
+                      )
+                    }
+                    onActivate={() =>
+                      handleToggleClientStatus(
+                        index,
+                        client.id,
+                        ClientStatus.Active
+                      )
+                    }
+                    onDelete={() => handleDeleteClient(client.id)}
                     clickOutSide={() => setActiveDropdownIndex(null)}
                   />
                 )}
