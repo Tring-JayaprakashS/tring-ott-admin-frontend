@@ -13,6 +13,7 @@ export const AccessDropDown = ({
 }: AccessDropDownProps) => {
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
   const dropdownRef = useRef<HTMLDivElement>(null);
+  console.log('====');
   useClickOutside(dropdownRef, () => setIsDropdownOpen(false));
 
   const selectedOption = options.find((opt) => opt.name === selectedValue);
