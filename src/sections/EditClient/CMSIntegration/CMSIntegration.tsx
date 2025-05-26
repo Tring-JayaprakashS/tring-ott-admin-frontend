@@ -1,4 +1,3 @@
-import React from 'react';
 import styles from './CMSIntegration.module.scss';
 import TitleCard from '../../../components/TitleCard/TitleCard';
 import { useAddClient } from '../../../context/AddClientContext';
